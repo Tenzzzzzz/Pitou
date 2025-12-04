@@ -1,6 +1,81 @@
 {{ define "main" }}
 <link rel="stylesheet" href="/css/about.css">
-<div class="about-page-container">
-    <div class="about-content">
+<div class="terminal-container">
+    <div class="terminal-header">
+        <div class="terminal-buttons">
+            <span class="terminal-btn red"></span>
+            <span class="terminal-btn yellow"></span>
+            <span class="terminal-btn green"></span>
+        </div>
+        <div class="terminal-title">guest@pitou: ~/about</div>
+    </div>
+    <div class="terminal-body">
+        <div class="terminal-output" id="terminalOutput">
+            <p><span class="terminal-prompt">guest@pitou:~$</span> cat about.txt</p>
+            <div class="about-text">
+                {{ .Content }}
+            </div>
+            <p>&nbsp;</p>
+        </div>
+        <div class="terminal-input-line">
+            <span class="terminal-prompt">guest@pitou:~$</span>
+            <input type="text" class="terminal-input" id="terminalInput" autofocus>
+            <span class="terminal-cursor">█</span>
+        </div>
+    </div>
 </div>
+
+<script>
+    const input = document.getElementById('terminalInput');
+    const output = document.getElementById('terminalOutput');
+    
+    const commands = {
+        help: 'Available commands: help, clear, about, date, echo [text]',
+        about: 'CS student at Cairo University exploring cybersecurity and HxH enthusiast',
+        date: new Date().toLocaleString(),
+        clear: 'CLEAR'
+    };
+    
+    input.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            const command = input.value.trim();
+            if (command) {
+                // Display the command
+                const cmdLine = document.createElement('p');
+                cmdLine.innerHTML = `<span class="terminal-prompt">guest@pitou:~$</span> ${command}`;
+                output.appendChild(cmdLine);
+                
+                // Process command
+                const response = document.createElement('p');
+                const parts = command.split(' ');
+                const cmd = parts[0].toLowerCase();
+                
+                if (cmd === 'clear') {
+                    output.innerHTML = '';
+                } else if (cmd === 'echo') {
+                    response.textContent = parts.slice(1).join(' ');
+                    output.appendChild(response);
+                } else if (commands[cmd]) {
+                    response.textContent = commands[cmd];
+                    output.appendChild(response);
+                } else {
+                    response.textContent = `bash: ${cmd}: command not found`;
+                    output.appendChild(response);
+                }
+                
+                const blank = document.createElement('p');
+                blank.innerHTML = '&nbsp;';
+                output.appendChild(blank);
+                
+                input.value = '';
+                output.scrollTop = output.scrollHeight;
+            }
+        }
+    });
+    
+    // Keep focus on input
+    document.addEventListener('click', function() {
+        input.focus();
+    });
+</script>
 {{ end }}
