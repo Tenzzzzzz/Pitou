@@ -1,0 +1,327 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Page transition animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInWithBlur {
+    from {
+        opacity: 1;
+        transform: translateX(-30px);
+        filter: blur(2px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+        filter: blur(0);
+    }
+}
+
+body {
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.7), rgba(36, 23, 40, 0.7)),  /* Purple overlay for tint */
+        url('/images/bigbackground.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    font-family: 'Silkscreen',cursive;
+    padding: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Window Frame Style - Rounded Corners */
+.window-frame {
+    background: #c0c0c0;
+    border: 4px solid #000000;
+    border-radius: 20px;
+    max-width: 1200px;
+    width: 100%;
+    min-height: 600px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    animation: slideInWithBlur 0.7s ease-out;
+}
+
+.window-header {
+ background: linear-gradient(
+        to bottom,
+        #e2e2e2 0%,   /* light gray top */
+        #b8b8b8 100%  /* darker gray bottom */
+    );
+    padding: 13px 30px;
+    border-bottom: none;
+    position: relative;
+    height: 40px;       /* <-- keeps same size as before */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.window-title {
+    display: block !important;
+    position: absolute;
+    left: 20px;
+    font-size: 1.4em;
+    font-weight: 700;
+    color: #000000;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Silkscreen', cursive;
+    font-style: normal;
+}
+
+.header-icons {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+
+/* White Sub-bar */
+.window-subbar {
+    background: #ffffff;
+    padding: 0px 0px;
+    border-bottom: 2px solid #808080;
+    color: #000000;
+    font-size: 0px;
+    font-weight: 0;
+    text-align: center;
+    letter-spacing: 0px;
+}
+
+/* Navigation */
+.retro-nav {
+    background: #e0e0e0;
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    border-bottom: 2px solid #808080;
+}
+
+.nav-item {
+    color: #000000;
+    text-decoration: none;
+    padding: 8px 20px;
+    border-radius: 10px;
+    background: #c0c0c0;
+    transition: all 0.3s;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 2px solid transparent;
+    font-size: 14px;
+}
+
+.nav-item:hover {
+    background: #ff6ec7;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 110, 199, 0.3);
+}
+
+.nav-item.active {
+    background: #ff4eb8;
+    color: white;
+    border: 2px solid rgba(255,255,255,0.3);
+}
+
+
+/* Window Content with Background Image */
+.window-content {
+    background: transparent;
+    padding: 50px 80px;
+    min-height: 500px;
+    min-width: 1000px;
+    color: #000000;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Image with Blur */
+.window-content::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -0px;
+    right: -0px;
+    bottom: -0px;
+    background-image: url('/images/background.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(2px) brightness(0.6);
+    z-index: 0;
+}
+
+/* Ensure content stays above background */
+.window-content > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Homepage Styles */
+.homepage-container {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    position: relative;
+    z-index: 1;
+}
+
+
+
+.profile-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 15px;
+}
+
+.glitch-text {
+    font-size: 3em;
+    font-weight: 700;
+    color: #ff6ec7;
+    text-shadow: 
+        3px 3px 0px #e845a5,
+        -3px -3px 0px #ffb3e0;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.title-text {
+    font-size: 1.1em;
+    color: #ffb3e0;
+    margin-bottom: 30px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(255, 179, 224, 0.8);
+}
+
+/* Posts List Page Styles (for posts page) */
+.posts-list {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.post-item {
+    background: rgba(255, 110, 199, 0.1);
+    backdrop-filter: blur(10px);
+    border: 2px solid #ff6ec7;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: all 0.3s;
+}
+
+.post-item:hover {
+    background: rgba(255, 110, 199, 0.2);
+    transform: translateX(10px);
+    box-shadow: 0 5px 20px rgba(255, 110, 199, 0.3);
+}
+
+.post-item h2 a {
+    color: #ffb3e0;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.post-item h2 a:hover {
+    color: #ff6ec7;
+}
+
+.post-item time {
+    color: #ccc;
+    font-size: 0.9em;
+    font-weight: 400;
+}
+/* Header Social Icons */
+.header-icons  {
+    position: relative;
+    top: 0;
+    right: 0;
+    display: flex;
+    gap: 7px;
+    z-index: 2;
+}
+
+
+
+
+/* Non-Discord icons */
+.header-icons .icon-link img:not([alt="Discord"]) {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    transition: transform 0.3s, filter 0.2s;
+}
+
+.header-icons .icon-link img:not([alt="Discord"]):hover {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+}
+
+/* Discord icon - Customize here */
+.header-icons .icon-link img[alt="Discord"] {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+    filter: brightness(0.8);
+    transition: transform 0.3s ease, filter 0.2s ease;
+}
+
+.header-icons .icon-link img[alt="Discord"]:hover {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+}
+
+
+
+
+
+/* ================================
+   ABOUT PAGE CONTENT STYLING
+   ================================ */
+
+

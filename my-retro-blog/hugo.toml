@@ -1,0 +1,14 @@
+baseURL = "http://localhost:1313/"
+languageCode = "en-us"
+title = "pitou"
+
+[params]
+  author = "Your Name"
+  authorTitle = "Security Researcher | Hacker | Developer"
+  description = "Personal blog about cybersecurity and tech"
+
+
+[params.social]
+  linkedin = "https://www.linkedin.com/in/yourusername"
+  x = "https://x.com/yourusername"
+  discord = "https://discord.com/users/YOUR_ID"

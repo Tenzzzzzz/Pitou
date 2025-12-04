@@ -1,0 +1,38 @@
+/* About Page Styles - Matches home page dimensions */
+.about-page-container {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 600px;
+    min-width: 1200px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.about-content {
+    max-width: 1000px;
+    padding: 60px 40px;
+}
+
+.about-content h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #ff6ec7;
+    text-shadow: 
+        3px 3px 0px #e845a5,
+        -3px -3px 0px #ffb3e0;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.about-content p {
+    font-size: 1.1em;
+    color: #ffb3e0;
+    line-height: 1.8;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 10px rgba(255, 179, 224, 0.8);
+}
