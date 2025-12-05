@@ -180,11 +180,11 @@ body {
     left: -0px;
     right: -0px;
     bottom: -0px;
-    background-image: url('/images/.png');
+    background-image: url('/images/background.png');
     background-size: cover;
-    backgroundbackground-position: center;
+    background-position: center;
     background-repeat: no-repeat;
-    filter: blur(4px) brightness(0.6);
+    filter: blur(2.1px) brightness(0.8);
     z-index: 0;
 }
 
