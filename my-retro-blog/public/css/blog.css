@@ -377,10 +377,18 @@ a {
     flex: 1;
     margin-left: var(--sidebar-width);
     min-height: calc(100vh - var(--header-height));
+
+    /* UPDATED: make center + toc a proper flex row */
+    display: flex;
+    align-items: flex-start;
+    gap: var(--content-toc-gap);
 }
 
 .content-container {
-    width: 100%;
+    /* UPDATED: allow shrinking; remove width:100% behavior */
+    flex: 1 1 auto;
+    min-width: 0; /* critical in flex layouts */
+
     padding: 56px 64px;
 }
 
@@ -495,7 +503,8 @@ a {
 .article-content {
     font-size: 16px;
     line-height: 1.75;
-    color: var(--text-secondary);
+    color: var(--text-primary);
+    font-weight: bold;
 }
 
 .article-content h1 {
@@ -508,7 +517,7 @@ a {
 
 .article-content h2 {
     font-size: 24px;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--text-primary);
     margin: 40px 0 14px 0;
     letter-spacing: -0.01em;
@@ -516,14 +525,14 @@ a {
 
 .article-content h3 {
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--text-primary);
     margin: 32px 0 12px 0;
 }
 
 .article-content h4 {
     font-size: 17px;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--text-primary);
     margin: 24px 0 10px 0;
 }
@@ -595,6 +604,26 @@ a {
     margin: 28px 0;
 }
 
+.article-content figcaption:empty {
+  display: none;
+}
+
+.article-content figcaption {
+    font-size: 15px;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 8px;
+    font-style: italic;
+    font-weight: normal;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 8px;
+    border-radius: 5px;
+}
+
+.article-content figcaption p {
+    font-weight: normal;
+}
+
 .article-content hr {
     border: none;
     height: 1px;
@@ -608,6 +637,29 @@ a {
     margin: 28px 0;
     font-size: 15px;
 }
+.article-content figure {
+  margin: 28px 0;
+  display:left;          /* shrink-wrap to image width */
+}
+.article-content figure img {
+  display: block;
+  margin: 0;
+  max-width: 100%;
+  border-radius: 10px;
+}
+.article-content figure figcaption {
+  margin-top: 8px;
+  padding: 0;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-style: italic;
+  font-weight: normal;
+  text-align: left;    /* or center if you want */
+}
+.article-content figure figcaption:empty {
+  display: none;
+} 
 
 .article-content th,
 .article-content td {
