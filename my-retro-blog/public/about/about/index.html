@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=5836&amp;path=livereload" data-no-instant defer></script>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pitou - </title>
@@ -70,12 +70,12 @@
     </div>
     <div class="terminal-body">
         <div class="terminal-output" id="terminalOutput">
-    <p class="pink-text"><span class="terminal-prompt">guest@Pitou:~$</span> about</p>
+            <p class="pink-text"><span class="terminal-prompt">guest@Pitou:~$</span> about</p>
             <div class="about-text">
                 <p>CS student at Cairo University exploring new things in cybersecurity.</p>
 <p>currently focusing on =&gt;</p>
-<p>Malware Analysis</p>
-<p>Threat Detection Engineering</p>
+<p><strong>Malware Analysis</strong></p>
+<p><strong>Threat Detection Engineering</strong></p>
 
             </div>
             <p>&nbsp;</p>
@@ -91,67 +91,67 @@
 <script>
     const input = document.getElementById('terminalInput');
     const output = document.getElementById('terminalOutput');
-    
+
     const commands = {
         help: 'Available commands: help, clear, about, date, echo [text]',
-        about: `CS student at Cairo University exploring new things in cybersecurity.\ncurrently focusing on =\u0026gt;\nMalware Analysis\nThreat Detection Engineering\n`,
+        about: `\u003cp\u003eCS student at Cairo University exploring new things in cybersecurity.\u003c\/p\u003e\n\u003cp\u003ecurrently focusing on =\u0026gt;\u003c\/p\u003e\n\u003cp\u003e\u003cstrong\u003eMalware Analysis\u003c\/strong\u003e\u003c\/p\u003e\n\u003cp\u003e\u003cstrong\u003eThreat Detection Engineering\u003c\/strong\u003e\u003c\/p\u003e\n`,
         date: new Date().toLocaleString(),
-        clear: 'CLEAR'
+        clear: ' ',
+        
     };
-    
-function escapeHtml(str) {
-  return str.replace(/[&<>"']/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));
-}
 
-input.addEventListener('keypress', function(e) {
-  if (e.key === 'Enter') {
-    const command = input.value.trim();
-    if (!command) return;
-
-    
-    const cmdLine = document.createElement('p');
-    cmdLine.className = 'pink-text dynamic';
-    cmdLine.innerHTML = `<span class="terminal-prompt">guest@pitou:~$</span> ${escapeHtml(command)}`;
-    output.appendChild(cmdLine);
-
-    
-    const response = document.createElement('p');
-    response.className = 'normal-text dynamic';
-
-    const parts = command.split(' ');
-    const cmd = parts[0].toLowerCase();
-
-    if (cmd === 'clear') {
-      
-      const dynamicLines = output.querySelectorAll('.dynamic');
-      dynamicLines.forEach(node => node.remove());
-    } else if (cmd === 'echo') {
-      response.textContent = parts.slice(1).join(' ');
-      output.appendChild(response);
-    }
-    if (commands[cmd]) {
-    
-    response.innerHTML = commands[cmd].replace(/\n/g, '<br>');
-    output.appendChild(response);
-    }
-    else {
-      response.textContent = `bash: ${cmd}: command not found`;
-      output.appendChild(response);
+    function escapeHtml(str) {
+        return str.replace(/[&<>"']/g, s => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[s]));
     }
 
-    
-    const blank = document.createElement('p');
-    blank.className = 'dynamic';
-    blank.innerHTML = '&nbsp;';
-    output.appendChild(blank);
+    input.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            const command = input.value.trim();
+            if (!command) return;
 
-    input.value = '';
-    output.scrollTop = output.scrollHeight;
-  }
-});
+            
+            const cmdLine = document.createElement('p');
+            cmdLine.className = 'pink-text dynamic';
+            cmdLine.innerHTML = `<span class="terminal-prompt">guest@pitou:~$</span> ${escapeHtml(command)}`;
+            output.appendChild(cmdLine);
+
+            
+            const response = document.createElement('p');
+            response.className = 'normal-text dynamic';
+
+            const parts = command.split(' ');
+            const cmd = parts[0].toLowerCase();
+            if (cmd === 'clear') {
+                
+                const dynamicLines = output.querySelectorAll('.dynamic');
+                dynamicLines.forEach(node => node.remove());
+            } else if (cmd == 'echo') {
+                response.textContent = parts.slice(1).join(' ');
+                output.appendChild(response);
+            }
+            else if (commands[cmd]) {
+                
+                response.innerHTML = commands[cmd];
+                output.appendChild(response);
+            }
+            else {
+                response.textContent = `bash: ${cmd}: command not found`;
+                output.appendChild(response);
+            }
+
+            
+            const blank = document.createElement('p');
+            blank.className = 'dynamic';
+            blank.innerHTML = '&nbsp;';
+            output.appendChild(blank);
+
+            input.value = '';
+            output.scrollTop = output.scrollHeight;
+        }
+    });
+
     
-    
-    document.addEventListener('click', function() {
+    document.addEventListener('click', function () {
         input.focus();
     });
 </script>
