@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1780&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <title>Ransomware · Pitou</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="/css/blog.css">
+</head>
+<body class="dark-theme">
+
+
+    
+    <div class="search-modal-overlay" id="searchModal">
+        <div class="search-modal">
+            <div class="search-modal-header">
+                <div class="search-input-wrapper">
+                    <svg class="search-input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input 
+                        type="text" 
+                        class="search-modal-input" 
+                        id="searchInput" 
+                        placeholder="Search documentation..." 
+                        autocomplete="off"
+                    >
+                    <kbd class="search-esc">ESC</kbd>
+                </div>
+            </div>
+            <div class="search-modal-body" id="searchResults">
+                <div class="search-empty-state">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <p>Type to start searching...</p>
+                </div>
+            </div>
+            <div class="search-modal-footer">
+                <div class="search-hints">
+                    <span class="search-hint">
+                        <kbd>↑</kbd><kbd>↓</kbd> Navigate
+                    </span>
+                    <span class="search-hint">
+                        <kbd>↵</kbd> Open
+                    </span>
+                    <span class="search-hint">
+                        <kbd>ESC</kbd> Close
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <img src="/images/avatar.png" alt="Logo" class="logo-img">
+                <span class="logo-text">Pitou</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <button class="search-btn" id="searchBtn" onclick="openSearch()">
+                <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+                <span class="search-text">Search...</span>
+                <div class="search-shortcut">
+                    <kbd>Ctrl</kbd>
+                    <kbd>K</kbd>
+                </div>
+            </button>
+        </div>
+    </header>
+
+    <div class="layout">
+
+        
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                
+                
+                    
+        
+        
+        
+        
+        
+        
+        
+        <div class="nav-group has-children expanded root-level">
+
+            <div class="nav-item ">
+                <a href="/blog/ctfs-writeups/" class="nav-link">
+                    Ctfs Writeups
+                </a>
+                
+                <button class="nav-expand" onclick="this.closest('.nav-group').classList.toggle('expanded')">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+                
+            </div>
+
+            
+            <div class="nav-submenu">
+                
+                    
+        
+        
+        
+        
+        
+        
+        
+        <div class="nav-group  ">
+
+            <div class="nav-item ">
+                <a href="/blog/ctfs-writeups/1/" class="nav-link">
+                    AswanCTF 2025 Finals
+                </a>
+                
+            </div>
+
+            
+        </div>
+    
+                
+                    
+        
+        
+        
+        
+        
+        
+        
+        <div class="nav-group  ">
+
+            <div class="nav-item ">
+                <a href="/blog/ctfs-writeups/2/" class="nav-link">
+                    Break The Syntax ctf 2025
+                </a>
+                
+            </div>
+
+            
+        </div>
+    
+                
+                    
+        
+        
+        
+        
+        
+        
+        
+        <div class="nav-group  ">
+
+            <div class="nav-item ">
+                <a href="/blog/ctfs-writeups/3/" class="nav-link">
+                    EG-CERT Ctf 2025 Qualification
+                </a>
+                
+            </div>
+
+            
+        </div>
+    
+                
+                    
+        
+        
+        
+        
+        
+        
+        
+        <div class="nav-group  ">
+
+            <div class="nav-item ">
+                <a href="/blog/ctfs-writeups/4/" class="nav-link">
+                    Connectors Ctf 2025 Qualification
+                </a>
+                
+            </div>
+
+            
+        </div>
+    
+                
+            </div>
+            
+        </div>
+    
+                
+                    
+        
+        
+        
+        
+        
+        
+        
+        <div class="nav-group has-children expanded root-level">
+
+            <div class="nav-item ">
+                <a href="/blog/crackmes/" class="nav-link">
+                    Crackmes challenges
+                </a>
+                
+                <button class="nav-expand" onclick="this.closest('.nav-group').classList.toggle('expanded')">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+                
+            </div>
+
+            
+            <div class="nav-submenu">
+                
+                    
+        
+        
+        
+        
+        
+        
+        
+        <div class="nav-group  ">
+
+            <div class="nav-item active">
+                <a href="/blog/crackmes/1/" class="nav-link">
+                    Ransomware
+                </a>
+                
+            </div>
+
+            
+        </div>
+    
+                
+            </div>
+            
+        </div>
+    
+                
+            </nav>
+        </aside>
+
+        
+       
+<main class="main-content">
+    <div class="content-container">
+            <div class="reading-progress" id="readingProgress"></div>
+
+        
+        <div class="page-header">
+            <h1 class="page-title">Ransomware</h1>
+        </div>
+
+        
+        <article class="article-content">
+            <p>Program Link ⇒<a href="https://crackmes.one/crackme/6848e4102b84be7ea77437ba">https://crackmes.one/crackme/6848e4102b84be7ea77437ba</a></p>
+<hr>
+<p>So we are provided with an exe and a PCAP file</p>
+<div data-full-width="false"><figure><img src="/blog_images/Crackmes/1/001.png" alt=""><figcaption></figcaption></figure></div>
+<p>I will start by performing some static analysis of the .exe file to see what it has.</p>
+<p>Many tools are used for this purpose, but the one that is most reliable for me is <a href="https://github.com/horsicq/Detect-It-Easy">DIE</a>.</p>
+<p>As I see in the result, an unpacked C program that uses the OpenSSL library, which indicates that the malware uses some sort of cryptography functions, which makes sense, since it is ransomware.</p>
+<figure><img src="/blog_images/Crackmes/1/002.png" alt=""><figcaption></figcaption></figure>
+<p>i will do an extra step and scan the program again with <a href="https://pestudio.en.lo4d.com/windows">PEstudio</a>, which gives us a detailed static analysis of PE files.</p>
+<p>We see in the imports section many suspicious functions like DeleteFileA, WSAStartup, connect, send, and other functions related to network communication, which indicates that the ransomware communicates with C2, maybe. I will see.</p>
+<figure><img src="/blog_images/Crackmes/1/003.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/blog_images/Crackmes/1/004.png" alt=""><figcaption></figcaption></figure>
+<p>Now I will use the <a href="https://github.com/mandiant/flare-floss">floss</a> tool that will reveal program’strings</p>
+<figure><img src="/blog_images/Crackmes/1/005.png" alt=""><figcaption></figcaption></figure>
+<p>IP and a path ??, interesting.</p>
+<p>Now I will load the program in IDA to reverse it.</p>
+<p>We begin by looking at the main function and see what is being called from there.</p>
+<figure><img src="/blog_images/Crackmes/1/006.png" alt=""><figcaption></figcaption></figure>
+<p>I want to explore these functions.</p>
+<p>Let’s start with the sub_001860() function.</p>
+<p>I see a LoadLibrary function, which is used obviously to load DLLs. LoadLibrary loads a DLL into the process’s memory and returns an hmodule, which is simply the base address of the loaded module.</p>
+<p>Then the program allocates a 0x20-byte block, which will be filled later with some data as we continue exploring the function.</p>
+<p>Now the program uses a getprocaddress function, which, if you do not know, is a function that gets the address of a function from a DLL.</p>
+<p>Then the program calls that weird get_from_file function with a parameter called “anonymous”, it then writes the result to the previously initialized block and returns that block.</p>
+<figure><img src="/blog_images/Crackmes/1/007.png" alt=""><figcaption></figcaption></figure>
+<p>Again same approach, it gets the address of another weird function, get_result_bytes, and calls it with a block argument, then returns that block, so it fills that block with some data, which we still do not know what these data are going to be used for.</p>
+<figure><img src="/blog_images/Crackmes/1/008.png" alt=""><figcaption></figcaption></figure>
+<p>still getting some function named gen, opening a file called anonymous, allocating some space to read the content of the file, and calling the function gen with file content and size arguments, and then returning the block.</p>
+<p>Note the fseek/ftell/rewind part. It is used to get the file size.</p>
+<p>fseek with 0,2 argument moves the file pointer to the end of the file,ftell returns the current offset of the pointer, rewind moves the pointer back to the <strong>beginning of the file.</strong></p>
+<p>Refer to <a href="https://www.ibm.com/docs/en/aix/7.1.0?topic=f-fseek-fseeko-fseeko64-rewind-ftell-ftello-ftello64-fgetpos-fgetpos64-fsetpos-fsetpos64-subroutine">that</a> for more info</p>
+<figure><img src="/blog_images/Crackmes/1/009.png" alt=""><figcaption></figcaption></figure>
+<p>So final observation on this function, it just tries to read some data from different things, and whichever gets the job done, will return first, starting from</p>
+<p>1-gen_from_file function</p>
+<p>2-get_result_bytes function</p>
+<p>3-gen function</p>
+<p>Maybe these data are keys or something that will be used for encryption later ?? idk but we will continue exploring the other functions, and btw it is a recommended approach to rename vars, function names, and write some comments in functions so it is clearer and representative of the functionalities. I tend to write long names that are very descriptive. something like that →</p>
+<figure><img src="/blog_images/Crackmes/1/010.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/blog_images/Crackmes/1/011.png" alt=""><figcaption></figcaption></figure>
+<p>Now we explore the sub_001DE1 function→</p>
+<p>Here it is…</p>
+<figure><img src="/blog_images/Crackmes/1/012.png" alt=""><figcaption></figcaption></figure>
+<p>after some renaming ..</p>
+<figure><img src="/blog_images/Crackmes/1/013.png" alt=""><figcaption></figcaption></figure>
+<p>Now I will explore the sub_001668 function to see what it does.</p>
+<p>got two functions..</p>
+<figure><img src="/blog_images/Crackmes/1/014.png" alt=""><figcaption></figcaption></figure>
+<p>The first function seems to do some operations :</p>
+<figure><img src="/blog_images/Crackmes/1/015.png" alt=""><figcaption></figcaption></figure>
+<p>if u are a new to ctfs u may wonder what does this do, but i have seen this function many times before, it is part of the <a href="https://www.youtube.com/watch?v=1UP56WM4ook">rc4</a> algorithm, which is used for data encryption/decryption, and btw RC4 is not used now in applications cuz it has many <a href="https://www.rc4nomore.com/">vulnerabilities</a> , another important thing , when i said i saw this form before , i meant that in a high level , like my eye just suspected that i saw it before in rc4 kSA, maybe i am wrong, maybe not …. this is an important concept in RE, we do introduce hypothesis about some part of the program, then we try to test our understanding if it is correct or not ,so we will see.</p>
+<p>The second function does the PRNG and encrypts the data inside the file</p>
+<figure><img src="/blog_images/Crackmes/1/016.png" alt=""><figcaption></figcaption></figure>
+<p>Now, after the ransomware encrypted that file, it deleted it and now tries to communicate with the C2…</p>
+<figure><img src="/blog_images/Crackmes/1/017.png" alt=""><figcaption></figcaption></figure>
+<p>The ransomware tries to connect to the C2 server with IP=192.168.134.132 and port 8888, then it sends the size of encrypted data to it, and then the data itself.</p>
+<figure><img src="/blog_images/Crackmes/1/018.png" alt=""><figcaption></figcaption></figure>
+<p>now moving to the second function sub_001FB3..</p>
+<p>does the same as the previous function, but instead of using RC4, it uses <a href="https://www.geeksforgeeks.org/computer-networks/advanced-encryption-standard-aes/">AES</a> with a key (sha256(”hackingisnotcrime”)), and it encrypts the libgen.dll.</p>
+<figure><img src="/blog_images/Crackmes/1/019.png" alt=""><figcaption></figcaption></figure>
+<p>Now I will summarize my understanding of that ransomware.</p>
+<p><strong>1.</strong> The ransomware loads some data from a file named <strong>“anonymous”</strong> using three different methods. Each method is a function that receives the file as input, and whichever method succeeds first returns the result.</p>
+<p><strong>2.</strong> The program encrypts an important file called <strong>“usr.html”</strong> and a DLL named <strong>libgen.dll</strong>. The DLL is used to retrieve functions that read data from the <em>anonymous</em> file, which is later used during encryption.</p>
+<p>3-After encryption, the ransomware sends the encrypted files to a C2 server and then deletes the original files.</p>
+<p>We now need to examine the PCAP file to retrieve these files and decrypt the <strong>user.html</strong> file as well.</p>
+<hr>
+<p>I see a GET request to the anonymous file and a response with that file →</p>
+<figure><img src="/blog_images/Crackmes/1/020.png" alt=""><figcaption></figcaption></figure>
+<p>Here is the response with the file bytes→</p>
+<figure><img src="/blog_images/Crackmes/1/021.png" alt=""><figcaption></figcaption></figure>
+<p>Following that, I see a packet with data length 4 bytes, and this data represents the length of the sent file (user.html), I think.</p>
+<figure><img src="/blog_images/Crackmes/1/022.png" alt=""><figcaption></figcaption></figure>
+<p>This is 2588 bytes.</p>
+<p>Then, following this packet, we got two packets with data length =2588, representing the user&rsquo;s HTML file.</p>
+<p>I also got the packets of the DLL file, which is 16912 bytes.</p>
+<figure><img src="/blog_images/Crackmes/1/023.png" alt=""><figcaption></figcaption></figure>
+<p>Now we have the three files we need→</p>
+<figure><img src="/blog_images/Crackmes/1/024.png" alt=""><figcaption></figcaption></figure>
+<p>First, i will decrypt the library since I have the key ⇒ sha256(.”<code>hackingisnotacrime</code>&quot;)</p>
+<figure><img src="/blog_images/Crackmes/1/025.png" alt=""><figcaption></figcaption></figure>
+<p>Now, to be sure that I extract the key from the anonymous file correctly, I will debug the function that gets data from that file in ida→</p>
+<blockquote>
+<p>It is obviously not safe to run/debug a program that is supposly a malware on your main machine but i do debug malwares on my main windows machine cuz I’m not a coward 💪</p>
+</blockquote>
+<figure><img src="/blog_images/Crackmes/1/026.png" alt=""><figcaption></figcaption></figure>
+<p>The author implemented a simple anti-debug check that will cause the program to exit, but I will bypass that easily</p>
+<figure><img src="/blog_images/Crackmes/1/027.png" alt=""><figcaption></figcaption></figure>
+<p>Now we are here</p>
+<figure><img src="/blog_images/Crackmes/1/028.png" alt=""><figcaption></figcaption></figure>
+<p>I then created those same paths, with intended files, until the rc4/decryption</p>
+<figure><img src="/blog_images/Crackmes/1/029.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/blog_images/Crackmes/1/030.png" alt=""><figcaption></figcaption></figure>
+<p>Note that RC4 is a symmetric stream cipher, which means encryption and decryption use the exact same process.</p>
+<p>The same key generates the same keystream, so applying RC4 twice with the same key restores the original plaintext.</p>
+<p>Here is the flag→</p>
+<figure><img src="/blog_images/Crackmes/1/031.png" alt=""><figcaption></figcaption></figure>
+<p>Another approach is to directly load the dll, call the intended functions from it to generate the key, and then decrypt the user&rsquo;s HTML file using it.</p>
+
+        </article>
+
+        
+        
+
+        
+        
+    </div>
+
+    
+    
+    <aside class="toc">
+        <div class="toc-title">On this page</div>
+        <nav class="toc-nav">
+            <nav id="TableOfContents"></nav>
+        </nav>
+    </aside>
+    
+</main>
+
+    </div>
+
+    
+    
+    
+
+
+<script>
+    let searchIndex = [];
+    let selectedIndex = -1;
+    let searchLoaded = false;
+
+    
+    const baseURL = document.querySelector('base')?.href || '/';
+
+    
+    async function loadSearchIndex() {
+        if (searchLoaded) return;
+        
+        try {
+            
+            const paths = [
+                '\/index.json',
+                '/index.json',
+                './index.json'
+            ];
+
+            for (const path of paths) {
+                try {
+                    const response = await fetch(path);
+                    if (response.ok) {
+                        searchIndex = await response.json();
+                        searchLoaded = true;
+                        console.log('Search index loaded:', searchIndex.length, 'pages');
+                        return;
+                    }
+                } catch (e) {
+                    continue;
+                }
+            }
+            
+            console.error('Could not load search index from any path');
+        } catch (err) {
+            console.error('Error loading search index:', err);
+        }
+    }
+
+    
+    loadSearchIndex();
+
+    
+    function openSearch() {
+        const modal = document.getElementById('searchModal');
+        const input = document.getElementById('searchInput');
+        modal.classList.add('active');
+        input.value = '';
+        input.focus();
+        resetResults();
+        document.body.style.overflow = 'hidden';
+        
+        
+        loadSearchIndex();
+    }
+
+    
+    function closeSearch() {
+        const modal = document.getElementById('searchModal');
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+        selectedIndex = -1;
+    }
+
+    
+    function resetResults() {
+        const resultsContainer = document.getElementById('searchResults');
+        resultsContainer.innerHTML = `
+            <div class="search-empty-state">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+                <p>Type to start searching...</p>
+                <p class="search-debug">${searchIndex.length} pages indexed</p>
+            </div>
+        `;
+        selectedIndex = -1;
+    }
+
+    
+    function escapeRegex(string) {
+        return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    
+    function escapeHtml(text) {
+        if (!text) return '';
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    
+    function highlightText(text, query) {
+        if (!query || !text) return text;
+        const regex = new RegExp(`(${escapeRegex(query)})`, 'gi');
+        return text.replace(regex, '<mark class="search-highlight">$1</mark>');
+    }
+
+    
+    function getContext(content, query, contextLength = 100) {
+        if (!content) return '';
+        
+        const lowerContent = content.toLowerCase();
+        const lowerQuery = query.toLowerCase();
+        const index = lowerContent.indexOf(lowerQuery);
+        
+        if (index === -1) {
+            return content.substring(0, contextLength * 2) + (content.length > contextLength * 2 ? '...' : '');
+        }
+        
+        const start = Math.max(0, index - contextLength);
+        const end = Math.min(content.length, index + query.length + contextLength);
+        
+        let context = content.substring(start, end);
+        
+        if (start > 0) context = '...' + context;
+        if (end < content.length) context = context + '...';
+        
+        return context;
+    }
+
+    
+    function formatSection(section, parent) {
+        if (parent) {
+            return parent.toUpperCase();
+        }
+        if (!section || section === 'home') return 'HOME';
+        return section.split(/[-_]/).map(word => 
+            word.charAt(0).toUpperCase() + word.slice(1)
+        ).join(' ').toUpperCase();
+    }
+
+    
+    function performSearch(query) {
+        const resultsContainer = document.getElementById('searchResults');
+        
+        if (!query || query.length < 1) {
+            resetResults();
+            return;
+        }
+
+        if (!searchLoaded || searchIndex.length === 0) {
+            resultsContainer.innerHTML = `
+                <div class="search-empty-state">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <p>Loading search index...</p>
+                </div>
+            `;
+            loadSearchIndex().then(() => performSearch(query));
+            return;
+        }
+
+        const lowerQuery = query.toLowerCase().trim();
+        
+        
+        const results = searchIndex
+            .map(item => {
+                let score = 0;
+                const titleLower = (item.title || '').toLowerCase();
+                const contentLower = (item.content || '').toLowerCase();
+                
+                
+                if (titleLower === lowerQuery) score += 100;
+                
+                else if (titleLower.startsWith(lowerQuery)) score += 50;
+                
+                else if (titleLower.includes(lowerQuery)) score += 30;
+                
+                
+                if (contentLower.includes(lowerQuery)) {
+                    score += 10;
+                    
+                    const matches = (contentLower.match(new RegExp(escapeRegex(lowerQuery), 'g')) || []).length;
+                    score += Math.min(matches * 2, 20);
+                }
+                
+                return { ...item, score };
+            })
+            .filter(item => item.score > 0)
+            .sort((a, b) => b.score - a.score)
+            .slice(0, 15);
+
+        if (results.length === 0) {
+            resultsContainer.innerHTML = `
+                <div class="search-empty-state">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <p>No results found for "<strong>${escapeHtml(query)}</strong>"</p>
+                    <p class="search-debug">Searched ${searchIndex.length} pages</p>
+                </div>
+            `;
+            selectedIndex = -1;
+            return;
+        }
+
+        let html = '<div class="search-results-list">';
+        
+        results.forEach((result, index) => {
+            const context = getContext(result.content || '', query, 80);
+            const highlightedTitle = highlightText(escapeHtml(result.title || 'Untitled'), query);
+            const highlightedContext = highlightText(escapeHtml(context), query);
+            const sectionName = formatSection(result.section, result.parent);
+            
+            html += `
+                <a href="${result.permalink}" class="search-result-item" data-index="${index}">
+                    <div class="result-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                        </svg>
+                    </div>
+                    <div class="result-content">
+                        <div class="result-section">${sectionName}</div>
+                        <div class="result-title">${highlightedTitle}</div>
+                        ${highlightedContext ? `<div class="result-context">${highlightedContext}</div>` : ''}
+                    </div>
+                    <div class="result-arrow">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </div>
+                </a>
+            `;
+        });
+        
+        html += '</div>';
+        resultsContainer.innerHTML = html;
+        selectedIndex = -1;
+    }
+
+    
+    function updateSelection() {
+        const items = document.querySelectorAll('.search-result-item');
+        items.forEach((item, index) => {
+            if (index === selectedIndex) {
+                item.classList.add('selected');
+                item.scrollIntoView({ block: 'nearest' });
+            } else {
+                item.classList.remove('selected');
+            }
+        });
+    }
+
+    
+    function navigateToSelected() {
+        const items = document.querySelectorAll('.search-result-item');
+        if (selectedIndex >= 0 && selectedIndex < items.length) {
+            window.location.href = items[selectedIndex].href;
+        }
+    }
+
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        const searchInput = document.getElementById('searchInput');
+        const modal = document.getElementById('searchModal');
+
+        
+        let debounceTimer;
+        searchInput.addEventListener('input', (e) => {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => {
+                performSearch(e.target.value);
+            }, 100);
+        });
+
+        
+        document.addEventListener('keydown', (e) => {
+            
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                openSearch();
+            }
+
+            
+            if (!modal.classList.contains('active')) return;
+
+            
+            if (e.key === 'Escape') {
+                e.preventDefault();
+                closeSearch();
+            }
+
+            
+            const items = document.querySelectorAll('.search-result-item');
+            if (items.length === 0) return;
+
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                selectedIndex = Math.min(selectedIndex + 1, items.length - 1);
+                updateSelection();
+            }
+
+            if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                selectedIndex = Math.max(selectedIndex - 1, 0);
+                updateSelection();
+            }
+
+            
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                if (selectedIndex >= 0) {
+                    navigateToSelected();
+                } else if (items.length > 0) {
+                    window.location.href = items[0].href;
+                }
+            }
+        });
+
+        
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeSearch();
+            }
+        });
+
+        
+        document.addEventListener('mouseover', (e) => {
+            const item = e.target.closest('.search-result-item');
+            if (item) {
+                selectedIndex = parseInt(item.dataset.index);
+                updateSelection();
+            }
+        });
+    });
+</script>
+<script>
+
+window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    
+    if (docHeight > 0) {
+        const progress = (scrollTop / docHeight) * 100;
+        document.getElementById('readingProgress').style.width = progress + '%';
+    }
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    
+    if (docHeight > 0) {
+        const progress = (scrollTop / docHeight) * 100;
+        document.getElementById('readingProgress').style.width = progress + '%';
+    }
+});
+    </script>
+
+</body>
+</html>

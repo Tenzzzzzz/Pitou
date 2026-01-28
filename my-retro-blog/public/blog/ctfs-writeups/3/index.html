@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1780&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <title>EG-CERT Ctf 2025 Qualification · Pitou</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="/css/blog.css">
+</head>
+<body class="dark-theme">
+
+
+    
+    <div class="search-modal-overlay" id="searchModal">
+        <div class="search-modal">
+            <div class="search-modal-header">
+                <div class="search-input-wrapper">
+                    <svg class="search-input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input 
+                        type="text" 
+                        class="search-modal-input" 
+                        id="searchInput" 
+                        placeholder="Search documentation..." 
+                        autocomplete="off"
+                    >
+                    <kbd class="search-esc">ESC</kbd>
+                </div>
+            </div>
+            <div class="search-modal-body" id="searchResults">
+                <div class="search-empty-state">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <p>Type to start searching...</p>
+                </div>
+            </div>
+            <div class="search-modal-footer">
+                <div class="search-hints">
+                    <span class="search-hint">
+                        <kbd>↑</kbd><kbd>↓</kbd> Navigate
+                    </span>
+                    <span class="search-hint">
+                        <kbd>↵</kbd> Open
+                    </span>
+                    <span class="search-hint">
+                        <kbd>ESC</kbd> Close
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <img src="/images/avatar.png" alt="Logo" class="logo-img">
+                <span class="logo-text">Pitou</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <button class="search-btn" id="searchBtn" onclick="openSearch()">
+                <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+                <span class="search-text">Search...</span>
+                <div class="search-shortcut">
+                    <kbd>Ctrl</kbd>
+                    <kbd>K</kbd>
+                </div>
+            </button>
+        </div>
+    </header>
+
+    <div class="layout">
+
+        
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                
+                
+                    
+        
+        
+        
+        
+        
+        
+        
+        <div class="nav-group has-children expanded root-level">
+
+            <div class="nav-item ">
+                <a href="/blog/ctfs-writeups/" class="nav-link">
+                    Ctfs Writeups
+                </a>
+                
+                <button class="nav-expand" onclick="this.closest('.nav-group').classList.toggle('expanded')">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+                
+            </div>
+
+            
+            <div class="nav-submenu">
+                
+                    
+        
+        
+        
+        
+        
+        
+        
+        <div class="nav-group  ">
+
+            <div class="nav-item ">
+                <a href="/blog/ctfs-writeups/1/" class="nav-link">
+                    AswanCTF 2025 Finals
+                </a>
+                
+            </div>
+
+            
+        </div>
+    
+                
+                    
+        
+        
+        
+        
+        
+        
+        
+        <div class="nav-group  ">
+
+            <div class="nav-item ">
+                <a href="/blog/ctfs-writeups/2/" class="nav-link">
+                    Break The Syntax ctf 2025
+                </a>
+                
+            </div>
+
+            
+        </div>
+    
+                
+                    
+        
+        
+        
+        
+        
+        
+        
+        <div class="nav-group  ">
+
+            <div class="nav-item active">
+                <a href="/blog/ctfs-writeups/3/" class="nav-link">
+                    EG-CERT Ctf 2025 Qualification
+                </a>
+                
+            </div>
+
+            
+        </div>
+    
+                
+                    
+        
+        
+        
+        
+        
+        
+        
+        <div class="nav-group  ">
+
+            <div class="nav-item ">
+                <a href="/blog/ctfs-writeups/4/" class="nav-link">
+                    Connectors Ctf 2025 Qualification
+                </a>
+                
+            </div>
+
+            
+        </div>
+    
+                
+            </div>
+            
+        </div>
+    
+                
+                    
+        
+        
+        
+        
+        
+        
+        
+        <div class="nav-group has-children expanded root-level">
+
+            <div class="nav-item ">
+                <a href="/blog/crackmes/" class="nav-link">
+                    Crackmes challenges
+                </a>
+                
+                <button class="nav-expand" onclick="this.closest('.nav-group').classList.toggle('expanded')">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+                
+            </div>
+
+            
+            <div class="nav-submenu">
+                
+                    
+        
+        
+        
+        
+        
+        
+        
+        <div class="nav-group  ">
+
+            <div class="nav-item ">
+                <a href="/blog/crackmes/1/" class="nav-link">
+                    Ransomware
+                </a>
+                
+            </div>
+
+            
+        </div>
+    
+                
+            </div>
+            
+        </div>
+    
+                
+            </nav>
+        </aside>
+
+        
+       
+<main class="main-content">
+    <div class="content-container">
+            <div class="reading-progress" id="readingProgress"></div>
+
+        
+        <div class="page-header">
+            <h1 class="page-title">EG-CERT Ctf 2025 Qualification</h1>
+        </div>
+
+        
+        <article class="article-content">
+            <p>I have participated along with my awesome team 0xD4WN and ranked fifth</p>
+<figure><img src="/blog_images/ctfs_writeups/3/001.png" alt=""><figcaption></figcaption></figure>
+<p>Here are the solutions to two reverse challenges, phantime and millionaire </p>
+<h2 id="revphantime">[REV][phantime]</h2>
+<p>We are given a PE file</p>
+<figure><img src="/blog_images/ctfs_writeups/3/002.png" alt=""><figcaption><p>Detect it easy</p></figcaption></figure>
+<p>Upon executing it -&gt;</p>
+<figure><img src="/blog_images/ctfs_writeups/3/003.png" alt=""><figcaption></figcaption></figure>
+<p>It just asks for a 4-character password (that is what we know until now)</p>
+<p>Let&rsquo;s analyze it in IDA</p>
+<figure><img src="/blog_images/ctfs_writeups/3/004.png" alt=""><figcaption></figcaption></figure>
+<p>We need to check the true data that our input is being compared to</p>
+<figure><img src="/blog_images/ctfs_writeups/3/005.png" alt=""><figcaption><p>reading it from stack directly</p></figcaption></figure>
+<p>now we got this -&gt;</p>
+<figure><img src="/blog_images/ctfs_writeups/3/006.png" alt=""><figcaption></figcaption></figure>
+<p>Let&rsquo;s explore the functions being called</p>
+<figure><img src="/blog_images/ctfs_writeups/3/007.png" alt=""><figcaption><p>after passing the first check, there are three functions being called</p></figcaption></figure>
+<p>first function is just opening a registry key and querying a value to get its data , which is irrelevant </p>
+<p> </p>
+<figure><img src="/blog_images/ctfs_writeups/3/008.png" alt=""><figcaption><p>first function</p></figcaption></figure>
+<p>third function creates a registry key, sets a value inside this registry  with a name &ldquo;Flagcontent&rdquo; and sets its data with the string -&gt; &ldquo;This is not the flag you&rsquo;re looking for&rdquo;</p>
+<figure><img src="/blog_images/ctfs_writeups/3/009.png" alt=""><figcaption><p>third function</p></figcaption></figure>
+<p>second function is where we will get our solution</p>
+<p> </p>
+<figure><img src="/blog_images/ctfs_writeups/3/010.png" alt=""><figcaption></figcaption></figure>
+<p>The function creates a random string, initializes a string called-&gt; &ldquo;MEOWMEOW&rdquo; ,and it initializes an array called src with the values -&gt;</p>
+<pre tabindex="0"><code>data =[
+    0x3D, 0x24, 0x3C, 0x24, 0x3A, 0x2A, 0x3D, 0x33,
+    0x12, 0x31, 0x26, 0x3A, 0x24, 0x2B, 0x28, 0x08,
+    0x2C, 0x31, 0x3B, 0x36, 0x2E, 0x2E, 0x10]
+</code></pre><p>Then, the random string is XORed with the string &ldquo;MEOWMEOW&rdquo;</p>
+<p>The output of this operation is not used, so let&rsquo;s continue exploring the function to get any clues </p>
+<figure><img src="/blog_images/ctfs_writeups/3/011.png" alt=""><figcaption></figcaption></figure>
+<p>Again, it creates a key and sets some values, with data and the key (MEOWMEOW), and so on</p>
+<p>We should notice an interesting thing here, the memory location ExclusivePurri, contains -&gt;&ldquo;Exclusive purring helps decode secrets&rdquo;, purring means the sound of a cat XD, that why i labeled the hardcoded string &ldquo;MEOWMEOW&rdquo; as a key, this statement gives a hint that the flag can be obtained by xoring some data with the key, another interesting thing is that, the placeholder takes the random string asthe  last part of the flag </p>
+<p>Now we have a full picture of how the program works and how to get the flag</p>
+<p>let&rsquo;s xor the key with the extracted data</p>
+<pre tabindex="0"><code>def decode(encoded_data, key):
+    result = &#34;&#34;
+    for i in range(len(encoded_data)):
+        decoded_byte = encoded_data[i]^ord(key[i % len(key)])
+        result += chr(decoded_byte)
+    return result
+
+encoded_data = [
+    0x3D, 0x24, 0x3C, 0x24, 0x3A, 0x2A, 0x3D, 0x33,
+    0x12, 0x31, 0x26, 0x3A, 0x24, 0x2B, 0x28, 0x08,
+    0x2C, 0x31, 0x3B, 0x36, 0x2E, 0x2E, 0x10
+]
+
+key = &#34;MEOWMEOW&#34;
+decoded = decode(encoded_data, key)
+print(decoded)
+</code></pre><blockquote>
+<p>password_timing_attack_</p>
+</blockquote>
+<p>second part is the random string, so the flag is </p>
+<blockquote>
+<p>EGCTF{password_timing_attack_9nw5pa}</p>
+</blockquote>
+<hr>
+<h2 id="revmillionaire">[REV][millionaire]</h2>
+<p>We are given a PE file</p>
+<figure><img src="/blog_images/ctfs_writeups/3/012.png" alt=""><figcaption></figcaption></figure>
+<div><figure><img src="/blog_images/ctfs_writeups/3/013.png" alt=""><figcaption></figcaption></figure> <figure><img src="/blog_images/ctfs_writeups/3/014.png" alt=""><figcaption></figcaption></figure></div>
+<p>Time to go to IDA&hellip;</p>
+<figure><img src="/blog_images/ctfs_writeups/3/015.png" alt=""><figcaption><p>part_of_main_function</p></figcaption></figure>
+<p>Nownow we need to check the path_determining_function</p>
+<figure><img src="/blog_images/ctfs_writeups/3/016.png" alt=""><figcaption><p>first part of the function</p></figcaption></figure>
+<p>The function does call CryptStringToBinaryA function on string , then it xor the resulting bytes with our input key,</p>
+<figure><img src="/blog_images/ctfs_writeups/3/017.png" alt=""><figcaption></figcaption></figure>
+<p>It then computes the sha256 hash of the resulting string from the previous operation, and compares it specific hash, The flag consists of two parts, the first part is the str1, which results from xoring the key with the bytes resulting from applying crypt_string_to_binary on that string &ldquo;IAAA&hellip;&rdquo;</p>
+<blockquote>
+<p>now, the problem is we do not know the intended result , we got only the hash (f4b&hellip;.)</p>
+</blockquote>
+<p>if we go back a little bit , we notice that , the text that is printed when we execute the program, is hardcoded but encrypted</p>
+<figure><img src="/blog_images/ctfs_writeups/3/018.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/blog_images/ctfs_writeups/3/019.png" alt=""><figcaption></figcaption></figure>
+<p>there is interesing two things here , the encrypted text is transformed to bytes using the same crypt string to binary function , and after that it goes into second stage of decryption .</p>
+<p>let&rsquo;s try to apply the same process on the text &ldquo;IAAA&hellip;&rdquo;, and see what we got.</p>
+<p>in order to do that , we should examine the register where the input parameter is passed to function. and then replace the address of the original encrypted text with the address of the text &ldquo;IAAA&hellip;&rdquo;</p>
+<figure><img src="/blog_images/ctfs_writeups/3/020.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/blog_images/ctfs_writeups/3/021.png" alt=""><figcaption><p>address of "IAAA"</p></figcaption></figure>
+<p>now , we need to just modify the value of rcx register</p>
+<figure><img src="/blog_images/ctfs_writeups/3/022.png" alt=""><figcaption><p>here we got the data!</p></figcaption></figure>
+<p>it seems that the program decrypted the text with two different approaches and compared them to each other</p>
+<p>let&rsquo;s confirm this by getting the sha256 of the resulting data -&gt;</p>
+<pre tabindex="0"><code>&#34;W0rmy_Th0ught_1t_w4s_cl3ver_to_use_th3_r1ch_head3r_&#34;
+</code></pre><p> </p>
+<figure><img src="/blog_images/ctfs_writeups/3/023.png" alt=""><figcaption><p>sha256 hash</p></figcaption></figure>
+<p>so yes it does</p>
+<figure><img src="/blog_images/ctfs_writeups/3/024.png" alt=""><figcaption></figcaption></figure>
+<p>now it is straightforward XOR decryption-&gt;</p>
+<pre tabindex="0"><code>def get_key(input):
+    T=&#34;W0rmy_Th0ught_1t_w4s_cl3ver_to_use_th3_r1ch_head3r_&#34;
+    for c in range(len(input)):
+        #print(&#34;counter&#34;,c)
+        key=chr(ord(T[c])^(input[c]))
+        print(key,end=&#34;&#34;)
+
+
+
+final_stansoframion=&#34;W0rmy_Th0ught_1t_w4s_cl3ver_to_use_th3_r1ch_head3r_&#34;
+data = [
+     0x20, 0x00, 0x00, 0x00, 0x00, 0x6E, 0x27, 0x1A, 0x01,
+    0x16, 0x0F, 0x46, 0x03, 0x6F, 0x43, 0x19, 0x26, 0x46, 0x47,
+    0x01, 0x6E, 0x00, 0x04, 0x1D, 0x01, 0x55, 0x00, 0x32, 0x0D,
+    0x5E, 0x2C, 0x07, 0x42, 0x06, 0x37, 0x5A, 0x1F, 0x03, 0x2D,
+    0x1F, 0x48, 0x52, 0x1B, 0x2D, 0x59, 0x06, 0x09, 0x4A, 0x44,
+    0x42, 0x2D
+]
+#print(len(data))
+#print(len(final_stansoframion))
+get_key(data)
+</code></pre><blockquote>
+<p>w0rmy1sr1ch.w0rmy1sr1ch.w0rmy1sr1ch.w0rmy1sr1ch.w0r</p>
+</blockquote>
+<figure><img src="/blog_images/ctfs_writeups/3/025.png" alt=""><figcaption></figcaption></figure>
+<blockquote>
+<p>EGCTF{W0rmy_Th0ught_1t_w4s_cl3ver_to_use_th3_r1ch_head3r_SM512-m$$bIph}</p>
+</blockquote>
+
+        </article>
+
+        
+        
+
+        
+        
+    </div>
+
+    
+    
+    <aside class="toc">
+        <div class="toc-title">On this page</div>
+        <nav class="toc-nav">
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#revphantime">[REV][phantime]</a></li>
+        <li><a href="#revmillionaire">[REV][millionaire]</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </nav>
+    </aside>
+    
+</main>
+
+    </div>
+
+    
+    
+    
+
+
+<script>
+    let searchIndex = [];
+    let selectedIndex = -1;
+    let searchLoaded = false;
+
+    
+    const baseURL = document.querySelector('base')?.href || '/';
+
+    
+    async function loadSearchIndex() {
+        if (searchLoaded) return;
+        
+        try {
+            
+            const paths = [
+                '\/index.json',
+                '/index.json',
+                './index.json'
+            ];
+
+            for (const path of paths) {
+                try {
+                    const response = await fetch(path);
+                    if (response.ok) {
+                        searchIndex = await response.json();
+                        searchLoaded = true;
+                        console.log('Search index loaded:', searchIndex.length, 'pages');
+                        return;
+                    }
+                } catch (e) {
+                    continue;
+                }
+            }
+            
+            console.error('Could not load search index from any path');
+        } catch (err) {
+            console.error('Error loading search index:', err);
+        }
+    }
+
+    
+    loadSearchIndex();
+
+    
+    function openSearch() {
+        const modal = document.getElementById('searchModal');
+        const input = document.getElementById('searchInput');
+        modal.classList.add('active');
+        input.value = '';
+        input.focus();
+        resetResults();
+        document.body.style.overflow = 'hidden';
+        
+        
+        loadSearchIndex();
+    }
+
+    
+    function closeSearch() {
+        const modal = document.getElementById('searchModal');
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+        selectedIndex = -1;
+    }
+
+    
+    function resetResults() {
+        const resultsContainer = document.getElementById('searchResults');
+        resultsContainer.innerHTML = `
+            <div class="search-empty-state">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+                <p>Type to start searching...</p>
+                <p class="search-debug">${searchIndex.length} pages indexed</p>
+            </div>
+        `;
+        selectedIndex = -1;
+    }
+
+    
+    function escapeRegex(string) {
+        return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    
+    function escapeHtml(text) {
+        if (!text) return '';
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    
+    function highlightText(text, query) {
+        if (!query || !text) return text;
+        const regex = new RegExp(`(${escapeRegex(query)})`, 'gi');
+        return text.replace(regex, '<mark class="search-highlight">$1</mark>');
+    }
+
+    
+    function getContext(content, query, contextLength = 100) {
+        if (!content) return '';
+        
+        const lowerContent = content.toLowerCase();
+        const lowerQuery = query.toLowerCase();
+        const index = lowerContent.indexOf(lowerQuery);
+        
+        if (index === -1) {
+            return content.substring(0, contextLength * 2) + (content.length > contextLength * 2 ? '...' : '');
+        }
+        
+        const start = Math.max(0, index - contextLength);
+        const end = Math.min(content.length, index + query.length + contextLength);
+        
+        let context = content.substring(start, end);
+        
+        if (start > 0) context = '...' + context;
+        if (end < content.length) context = context + '...';
+        
+        return context;
+    }
+
+    
+    function formatSection(section, parent) {
+        if (parent) {
+            return parent.toUpperCase();
+        }
+        if (!section || section === 'home') return 'HOME';
+        return section.split(/[-_]/).map(word => 
+            word.charAt(0).toUpperCase() + word.slice(1)
+        ).join(' ').toUpperCase();
+    }
+
+    
+    function performSearch(query) {
+        const resultsContainer = document.getElementById('searchResults');
+        
+        if (!query || query.length < 1) {
+            resetResults();
+            return;
+        }
+
+        if (!searchLoaded || searchIndex.length === 0) {
+            resultsContainer.innerHTML = `
+                <div class="search-empty-state">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <p>Loading search index...</p>
+                </div>
+            `;
+            loadSearchIndex().then(() => performSearch(query));
+            return;
+        }
+
+        const lowerQuery = query.toLowerCase().trim();
+        
+        
+        const results = searchIndex
+            .map(item => {
+                let score = 0;
+                const titleLower = (item.title || '').toLowerCase();
+                const contentLower = (item.content || '').toLowerCase();
+                
+                
+                if (titleLower === lowerQuery) score += 100;
+                
+                else if (titleLower.startsWith(lowerQuery)) score += 50;
+                
+                else if (titleLower.includes(lowerQuery)) score += 30;
+                
+                
+                if (contentLower.includes(lowerQuery)) {
+                    score += 10;
+                    
+                    const matches = (contentLower.match(new RegExp(escapeRegex(lowerQuery), 'g')) || []).length;
+                    score += Math.min(matches * 2, 20);
+                }
+                
+                return { ...item, score };
+            })
+            .filter(item => item.score > 0)
+            .sort((a, b) => b.score - a.score)
+            .slice(0, 15);
+
+        if (results.length === 0) {
+            resultsContainer.innerHTML = `
+                <div class="search-empty-state">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <p>No results found for "<strong>${escapeHtml(query)}</strong>"</p>
+                    <p class="search-debug">Searched ${searchIndex.length} pages</p>
+                </div>
+            `;
+            selectedIndex = -1;
+            return;
+        }
+
+        let html = '<div class="search-results-list">';
+        
+        results.forEach((result, index) => {
+            const context = getContext(result.content || '', query, 80);
+            const highlightedTitle = highlightText(escapeHtml(result.title || 'Untitled'), query);
+            const highlightedContext = highlightText(escapeHtml(context), query);
+            const sectionName = formatSection(result.section, result.parent);
+            
+            html += `
+                <a href="${result.permalink}" class="search-result-item" data-index="${index}">
+                    <div class="result-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                        </svg>
+                    </div>
+                    <div class="result-content">
+                        <div class="result-section">${sectionName}</div>
+                        <div class="result-title">${highlightedTitle}</div>
+                        ${highlightedContext ? `<div class="result-context">${highlightedContext}</div>` : ''}
+                    </div>
+                    <div class="result-arrow">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </div>
+                </a>
+            `;
+        });
+        
+        html += '</div>';
+        resultsContainer.innerHTML = html;
+        selectedIndex = -1;
+    }
+
+    
+    function updateSelection() {
+        const items = document.querySelectorAll('.search-result-item');
+        items.forEach((item, index) => {
+            if (index === selectedIndex) {
+                item.classList.add('selected');
+                item.scrollIntoView({ block: 'nearest' });
+            } else {
+                item.classList.remove('selected');
+            }
+        });
+    }
+
+    
+    function navigateToSelected() {
+        const items = document.querySelectorAll('.search-result-item');
+        if (selectedIndex >= 0 && selectedIndex < items.length) {
+            window.location.href = items[selectedIndex].href;
+        }
+    }
+
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        const searchInput = document.getElementById('searchInput');
+        const modal = document.getElementById('searchModal');
+
+        
+        let debounceTimer;
+        searchInput.addEventListener('input', (e) => {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => {
+                performSearch(e.target.value);
+            }, 100);
+        });
+
+        
+        document.addEventListener('keydown', (e) => {
+            
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                openSearch();
+            }
+
+            
+            if (!modal.classList.contains('active')) return;
+
+            
+            if (e.key === 'Escape') {
+                e.preventDefault();
+                closeSearch();
+            }
+
+            
+            const items = document.querySelectorAll('.search-result-item');
+            if (items.length === 0) return;
+
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                selectedIndex = Math.min(selectedIndex + 1, items.length - 1);
+                updateSelection();
+            }
+
+            if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                selectedIndex = Math.max(selectedIndex - 1, 0);
+                updateSelection();
+            }
+
+            
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                if (selectedIndex >= 0) {
+                    navigateToSelected();
+                } else if (items.length > 0) {
+                    window.location.href = items[0].href;
+                }
+            }
+        });
+
+        
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeSearch();
+            }
+        });
+
+        
+        document.addEventListener('mouseover', (e) => {
+            const item = e.target.closest('.search-result-item');
+            if (item) {
+                selectedIndex = parseInt(item.dataset.index);
+                updateSelection();
+            }
+        });
+    });
+</script>
+<script>
+
+window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    
+    if (docHeight > 0) {
+        const progress = (scrollTop / docHeight) * 100;
+        document.getElementById('readingProgress').style.width = progress + '%';
+    }
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    
+    if (docHeight > 0) {
+        const progress = (scrollTop / docHeight) * 100;
+        document.getElementById('readingProgress').style.width = progress + '%';
+    }
+});
+    </script>
+
+</body>
+</html>

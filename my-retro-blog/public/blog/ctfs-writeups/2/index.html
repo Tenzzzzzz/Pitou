@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1780&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <title>Break The Syntax ctf 2025 · Pitou</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="/css/blog.css">
+</head>
+<body class="dark-theme">
+
+
+    
+    <div class="search-modal-overlay" id="searchModal">
+        <div class="search-modal">
+            <div class="search-modal-header">
+                <div class="search-input-wrapper">
+                    <svg class="search-input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input 
+                        type="text" 
+                        class="search-modal-input" 
+                        id="searchInput" 
+                        placeholder="Search documentation..." 
+                        autocomplete="off"
+                    >
+                    <kbd class="search-esc">ESC</kbd>
+                </div>
+            </div>
+            <div class="search-modal-body" id="searchResults">
+                <div class="search-empty-state">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <p>Type to start searching...</p>
+                </div>
+            </div>
+            <div class="search-modal-footer">
+                <div class="search-hints">
+                    <span class="search-hint">
+                        <kbd>↑</kbd><kbd>↓</kbd> Navigate
+                    </span>
+                    <span class="search-hint">
+                        <kbd>↵</kbd> Open
+                    </span>
+                    <span class="search-hint">
+                        <kbd>ESC</kbd> Close
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <img src="/images/avatar.png" alt="Logo" class="logo-img">
+                <span class="logo-text">Pitou</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <button class="search-btn" id="searchBtn" onclick="openSearch()">
+                <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+                <span class="search-text">Search...</span>
+                <div class="search-shortcut">
+                    <kbd>Ctrl</kbd>
+                    <kbd>K</kbd>
+                </div>
+            </button>
+        </div>
+    </header>
+
+    <div class="layout">
+
+        
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                
+                
+                    
+        
+        
+        
+        
+        
+        
+        
+        <div class="nav-group has-children expanded root-level">
+
+            <div class="nav-item ">
+                <a href="/blog/ctfs-writeups/" class="nav-link">
+                    Ctfs Writeups
+                </a>
+                
+                <button class="nav-expand" onclick="this.closest('.nav-group').classList.toggle('expanded')">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+                
+            </div>
+
+            
+            <div class="nav-submenu">
+                
+                    
+        
+        
+        
+        
+        
+        
+        
+        <div class="nav-group  ">
+
+            <div class="nav-item ">
+                <a href="/blog/ctfs-writeups/1/" class="nav-link">
+                    AswanCTF 2025 Finals
+                </a>
+                
+            </div>
+
+            
+        </div>
+    
+                
+                    
+        
+        
+        
+        
+        
+        
+        
+        <div class="nav-group  ">
+
+            <div class="nav-item active">
+                <a href="/blog/ctfs-writeups/2/" class="nav-link">
+                    Break The Syntax ctf 2025
+                </a>
+                
+            </div>
+
+            
+        </div>
+    
+                
+                    
+        
+        
+        
+        
+        
+        
+        
+        <div class="nav-group  ">
+
+            <div class="nav-item ">
+                <a href="/blog/ctfs-writeups/3/" class="nav-link">
+                    EG-CERT Ctf 2025 Qualification
+                </a>
+                
+            </div>
+
+            
+        </div>
+    
+                
+                    
+        
+        
+        
+        
+        
+        
+        
+        <div class="nav-group  ">
+
+            <div class="nav-item ">
+                <a href="/blog/ctfs-writeups/4/" class="nav-link">
+                    Connectors Ctf 2025 Qualification
+                </a>
+                
+            </div>
+
+            
+        </div>
+    
+                
+            </div>
+            
+        </div>
+    
+                
+                    
+        
+        
+        
+        
+        
+        
+        
+        <div class="nav-group has-children expanded root-level">
+
+            <div class="nav-item ">
+                <a href="/blog/crackmes/" class="nav-link">
+                    Crackmes challenges
+                </a>
+                
+                <button class="nav-expand" onclick="this.closest('.nav-group').classList.toggle('expanded')">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+                
+            </div>
+
+            
+            <div class="nav-submenu">
+                
+                    
+        
+        
+        
+        
+        
+        
+        
+        <div class="nav-group  ">
+
+            <div class="nav-item ">
+                <a href="/blog/crackmes/1/" class="nav-link">
+                    Ransomware
+                </a>
+                
+            </div>
+
+            
+        </div>
+    
+                
+            </div>
+            
+        </div>
+    
+                
+            </nav>
+        </aside>
+
+        
+       
+<main class="main-content">
+    <div class="content-container">
+            <div class="reading-progress" id="readingProgress"></div>
+
+        
+        <div class="page-header">
+            <h1 class="page-title">Break The Syntax ctf 2025</h1>
+        </div>
+
+        
+        <article class="article-content">
+            <h2 id="revrainbom-bash-adventure">[REV][Rainbom Bash Adventure]</h2>
+<p>We are given a game called Rainbombashadventure, made with a game engine called Ren&rsquo;Py</p>
+<p><a href="https://en.wikipedia.org/wiki/Ren%27Py">Ren&rsquo;Py</a></p>
+<div><figure><img src="/blog_images/ctfs_writeups/2/001.png" alt=""><figcaption></figcaption></figure> <figure><img src="/blog_images/ctfs_writeups/2/002.png" alt=""><figcaption></figcaption></figure></div>
+<p>After escaping a long conversation between characters, I had to choose paths to clouds, given the distances, the win/lose condition is determined based on my choices</p>
+<p>I will explore the game folder </p>
+<figure><img src="/blog_images/ctfs_writeups/2/003.png" alt=""><figcaption><p>the script.rpy file contains the whole game logic including win or lose conditions</p></figcaption></figure>
+<div><figure><img src="/blog_images/ctfs_writeups/2/004.png" alt=""><figcaption><p>This is cloud0 menu, which displays the distances between it and the others, same for the rest of the clouds</p></figcaption></figure> <figure><img src="/blog_images/ctfs_writeups/2/005.png" alt=""><figcaption></figcaption></figure></div>
+<p>It is a Travelling Salesman Problem</p>
+<p><a href="https://en.wikipedia.org/wiki/Travelling_salesman_problem">TSP</a></p>
+<p>And here is the important part that determines our win condition-&gt;</p>
+<pre tabindex="0"><code>label ending:
+    python:
+        import hashlib
+
+
+        flag = b&#34;&#34;
+
+        
+        def xor(target, key):
+            out = [c ^ key[i % len(key)] for i, c in enumerate(target)]
+            return bytearray(out)
+
+
+        def key_from_path(path):
+            return hashlib.sha256(str(path).encode()).digest()
+
+
+        def check_path(path, enc_flag):
+            global flag
+            flag1 = xor(enc_flag, key_from_path(path))
+            flag2 = xor(enc_flag, key_from_path(list(reversed(path))))
+            if flag1.startswith(b&#34;BtSCTF&#34;):
+                flag = flag1
+                print(flag)
+                flag = bytes(flag).replace(b&#34;{&#34;, b&#34;{{&#34;).decode(&#39;ascii&#39;)
+                return True
+            if flag2.startswith(b&#34;BtSCTF&#34;):
+                flag = flag2
+                print(flag)
+                flag = bytes(flag).replace(b&#34;{&#34;, b&#34;{{&#34;).decode(&#39;ascii&#39;)
+                return True
+            return False
+
+
+        is_correct = check_path(nodes, bytearray(b&#39;\xc2\x92\xf9\xf66\xe8\xa5\xa6\x17\xb6mGE\xcfQ\x90Mk:\x9a\xbb\x905&amp;\x19\x8e\xc4\x9a\x0b\x1f\xf8C\xf4\xb9\xc9\x85R\xc2\xbb\x8d\x07\x94[R_\xf5z\x9fAl\x11\x9c\xbb\x9255\x08\x8e\xf6\xd6\x04&#39;))
+    if is_correct:
+        rb &#34;all cloudz smashed im the queen&#34;
+        rb &#34;i got 100% swag&#34;
+        &#34;[flag]&#34;
+    else:
+        &#34;Sadly, Rainbom Bash was too slow and wasn&#39;t able to smash all clouds.&#34;
+    return
+</code></pre><p>The program decrypts the flag with the path (nodes) chosen, so the right path will successfully decrypt the flag!</p>
+<p>btw, Travelling salesman problem is an np hard problem, which means it can not be solved in polynomial time, but for a small number of nodes, it can be solved (not guaranteed)  using a greedy algorithm</p>
+<p>solver like this may work -&gt; <a href="https://github.com/dmishin/tsp-solver">https://github.com/dmishin/tsp-solver</a></p>
+<p>But first, we need to extract the matrix of distances between clouds. I wrote a simple regex to grab and add it to the matrix</p>
+<pre tabindex="0"><code>import re
+import numpy as np
+def get_the_distance_of_nodes(code):
+    debu=[]
+    distance=np.zeros((20,20))
+    for clound_num in range(20):
+        regex_for_spilt = f&#34;label cloud{clound_num}&#34;
+        splitawy_first_position=re.search(regex_for_spilt, code)
+
+        if splitawy_first_position:
+            start_pos=splitawy_first_position.start()
+
+            if clound_num &lt; 19:
+                end_pattern = f&#34;label cloud{clound_num + 1}:&#34;
+                end_match = re.search(end_pattern, code)
+                if end_match:
+                    end_pos = end_match.start()
+                else:
+                    end_pos = len(code)
+            else:
+                end_pattern = &#34;label ending:&#34;
+                end_match = re.search(end_pattern, code)
+                if end_match:
+                    end_pos = end_match.start()
+                else:
+                    end_pos = len(code)
+
+            section_text = code[start_pos:end_pos]
+
+        regex_for_label=re.compile(r&#39;label cloud (\d)&#39;)
+        #regex_for_distance=re.compile(r&#39;(\d)\spony&#39;)
+        regex_for_cloudy=re.compile(r&#39;cloud(\d*) which is (\d*) pony units&#39;)
+        c_d=regex_for_cloudy.findall(section_text)
+        n_c=regex_for_label.findall(section_text)
+        #print(c_d)
+        for c in c_d:
+            #this is only for debugging
+           debu.append(clound_num)
+           distance[clound_num,int(c[0])]=int(c[1])
+           if(int(c[1]))==0:
+               #debugging
+               print(f&#34;cloud_num={clound_num},to which cloud = {int(c[0])},distance = {int(c[1])}&#34;)
+
+
+    return distance,debu
+</code></pre><p>now using the mentioned library to solve it -&gt;</p>
+<pre tabindex="0"><code>from tsp_solver.greedy import solve_tsp
+print(&#34;the path is - &gt; &#34;)
+path=solve_tsp(r,endpoints=(0,0))
+print(path)
+</code></pre><blockquote>
+<p>path is : [0, 12, 15, 2, 1, 5, 11, 14, 17, 7, 19, 13, 9, 10, 3, 8, 16, 18, 4, 6, 0]</p>
+</blockquote>
+<p>Now, replicate the code in the game file to decrypt the flag</p>
+<pre tabindex="0"><code>def xor(target, key):
+    out = [c ^ key[i % len(key)] for i, c in enumerate(target)]
+    return bytearray(out)
+
+
+def key_from_path(path):
+    return hashlib.sha256(str(path).encode()).digest()
+
+
+enc_flag = bytearray(
+    b&#39;\xc2\x92\xf9\xf66\xe8\xa5\xa6\x17\xb6mGE\xcfQ\x90Mk:\x9a\xbb\x905&amp;\x19\x8e\xc4\x9a\x0b\x1f\xf8C\xf4\xb9\xc9\x85R\xc2\xbb\x8d\x07\x94[R_\xf5z\x9fAl\x11\x9c\xbb\x9255\x08\x8e\xf6\xd6\x04&#39;)
+
+
+
+path = [0, 12, 15, 2, 1, 5, 11, 14, 17, 7, 19, 13, 9, 10, 3, 8, 16, 18, 4, 6, 0]
+path_rev=path[::-1]
+
+flag1 = xor(enc_flag, key_from_path(path))
+flag2 = xor(enc_flag, key_from_path(path_rev))
+
+if flag1.startswith(b&#34;BtSCTF&#34;):
+    print(flag1.decode(&#39;ascii&#39;))
+elif flag2.startswith(b&#34;BtSCTF&#34;):
+    print(flag2.decode(&#39;ascii&#39;))
+</code></pre><blockquote>
+<p>BtSCTF{YOU_are_getting_20_percent_c00ler_with_this_one_!!_B)}</p>
+</blockquote>
+<hr>
+<h2 id="revtranslator">[REV][TRANSLATOR]</h2>
+<p>We are given an ELF file and an encrypted flag: 幾湂潌蕔䩘桢豝詧䭡䝵敯䡨剱挧䍩硷穏罣㈡䨥贇</p>
+<p>The program encrypts our input, and after some interaction with it, I found that,</p>
+<p>1-every two characters produce one encrypted character, and if u input one character only, it will also produce one encrypted character</p>
+<p>2-it is position dependent </p>
+<figure><img src="/blog_images/ctfs_writeups/2/006.png" alt=""><figcaption></figcaption></figure>
+<p>It seems that the last input characters are encrypted without getting affected by position, before that, it is affected</p>
+<p>Let&rsquo;s examine the program in depth using IDA</p>
+<figure><img src="/blog_images/ctfs_writeups/2/007.png" alt=""><figcaption></figcaption></figure>
+<p>The program takes the input as the second argument, pointed to by the v3 pointer. The program loads 2 bytes each time, then calls the main function, which holds the encryption algorithm </p>
+<p>It seems like function sub_1270 does something to (v3 + 1, which holds the second char of the input parameter to the main function, then the return will be used in encryption.</p>
+<p>I examined the sub_1270 function, and it works as follows:</p>
+<blockquote>
+<pre tabindex="0"><code>
+so if the first byte is found , it does return first byte&gt;&gt;4
+if second byte is found , return second byte &gt;&gt;4 + first byte &gt;&gt;4
+if third byte is found , return third byte &gt;&gt; 4 + second byte &gt;&gt;4 + first byte &gt;&gt;4
+if fourth byte is found , return fourth byte &gt;&gt; 4 + the rest
+if more than that , it will recursively return the summation of following bytes shifted right by 4
+</code></pre></blockquote>
+<blockquote>
+<p>the enryption algorithm - &gt; </p>
+<pre tabindex="0"><code>the main shifting algorithm
+v6 is first char
+v4 is output of function sub_1270 
+v5 +1 is my second char
+the encryption is -&gt;
+high_byte = (first_byte &amp; 0xF0) | ((first_byte + ((function_output + (first_byte &gt;&gt; 4)) &gt;&gt; 4)) &amp; 0x0F)
+low_byte = (second_byte &amp; 0xF0) | ((second_byte + function_output + (first_byte &gt;&gt; 4)) &amp; 0x0F)
+unicode = (high_byte &lt;&lt; 8) + low_byte + 4096
+</code></pre></blockquote>
+<p>So from here, we understand that the first bytes of input will be affected, cause of the function sub_1270 </p>
+<p>We know the last char is &lsquo;}&rsquo;</p>
+<figure><img src="/blog_images/ctfs_writeups/2/008.png" alt=""><figcaption><p>that encrypted char is the last one in the given encrypted text</p></figcaption></figure>
+<p>So we can brute force the program using this knowledge as a starting point</p>
+<p>Beginning from the reverse order, we’ll incrementally reconstruct the flag, testing two characters every time</p>
+<pre tabindex="0"><code>import time
+
+from pwn import *
+
+def solvey(right_data):
+    flag_till_now = &#34;}&#34;
+    start_index=len(right_data)-2
+    for i in range(20):
+        match=False
+        for first_byte in range(33, 126):
+            if match ==True:
+                break
+            for second_byte in range(33, 126):
+                try_that=chr(first_byte) + chr(second_byte)+flag_till_now
+                p = process([&#39;./translator&#39;, try_that])
+                output = p.recvall().decode().strip()
+                print (&#34;output - &gt; &#34;,output,&#34;length of output- &gt; &#34;,len(output))
+                print(&#34;right_data = &#34;,right_data[start_index:],&#34;length of right data - &gt; &#34;,len(right_data[start_index:]))
+                if output == right_data[start_index:]:
+                    print(&#34;hi , we found it&#34;)
+                    print(chr(first_byte) + chr(second_byte) + flag_till_now)
+                    flag_till_now = chr(first_byte) + chr(second_byte) + flag_till_now
+                    start_index=start_index-1
+                    match=True
+                    break
+                else:
+                    match=False
+                    continue
+        if not match:
+            #debug
+            print(&#34;No match&#34;)
+            time.sleep(100)
+    return flag_till_now
+
+
+
+
+
+
+
+
+
+
+true_data=&#34;幾湂潌蕔䩘桢豝詧䭡䝵敯䡨剱挧䍩硷穏罣㈡䨥贇&#34;
+flag=solvey(true_data)
+print(flag)
+</code></pre><p>This method will take about an hour or something. Another fast approach is to use a hybrid approach between brute-forcing and  implementing the same encryption algorithm :<br></p>
+<pre tabindex="0"><code>def decodeer(unicode_chars):
+    ascii_chars = [&#34;}&#34;]
+    following_high_nibbles = [&#34;}&#34;]
+
+    for i in range(len(unicode_chars) - 1, -1, -1):
+        unicode_val = unicode_chars[i]
+
+        result = brute_force_decode(unicode_val, following_high_nibbles)
+
+        if result:
+                first_byte, second_byte = result
+
+                following_high_nibbles.insert(0, chr(second_byte))
+                following_high_nibbles.insert(0, chr(first_byte))
+
+                ascii_chars.insert(0, chr(second_byte))
+                ascii_chars.insert(0, chr(first_byte))
+
+
+    return &#39;&#39;.join((b) for b in ascii_chars)
+
+
+
+
+def brute_force_decode(unicode_val, following_high_nibbles):
+
+    val = unicode_val - 4096
+    valinbinary = format(val, &#39;016b&#39;)
+    print(&#34;val in binary&#34;, valinbinary, &#34;len(valinbinary)=&#34;, len(valinbinary))
+
+    high_byte = (val &gt;&gt; 8) &amp; 0xFF
+    print(&#34;high_byte in binary=&#34;,format(high_byte, &#39;08b&#39;))
+    low_byte = val &amp; 0xFF
+    print(&#34;low byte in binary=&#34;,format(low_byte, &#39;08b&#39;))
+
+    for first_byte in range(32,128):
+        for second_byte in range(32,128):
+            tmp=[chr(second_byte)]+following_high_nibbles
+            function_output = calculate_function_output(tmp)
+
+            if check_encoding(first_byte, second_byte, function_output, high_byte, low_byte):
+                #print(f&#34;we found the first-&gt; {chr(first_byte)} and the second byte -&gt; {chr(second_byte)}&#34;)
+                print(&#34;second byte&#34;, chr(second_byte), end=&#39;&#39;)
+                print(&#34; , first byte&#34;,chr(first_byte),&#34;\n&#34;)
+
+                return first_byte, second_byte
+    return None
+
+
+
+
+
+
+
+
+
+def check_encoding(first_byte, second_byte, function_output, target_high, target_low):
+    calc_high = (first_byte &amp; 0xF0) | ((first_byte + ((function_output + (first_byte &gt;&gt; 4)) &gt;&gt; 4)) &amp; 0x0F)
+    calc_low = (second_byte &amp; 0xF0) | ((second_byte + function_output + (first_byte &gt;&gt; 4)) &amp; 0x0F)
+
+    return calc_high == target_high and calc_low == target_low
+
+
+
+
+
+def calculate_function_output(second_char_till_end):
+    if not second_char_till_end:
+        return 0
+
+    high_nibbles = [ord(b) &gt;&gt; 4 for b in second_char_till_end]
+    return sum(high_nibbles)
+
+
+
+
+
+
+
+def decode():
+    message = &#34;幾湂潌蕔䩘桢豝詧䭡䝵敯䡨剱挧䍩硷穏罣㈡䨥&#34;
+    #print(len(message))
+    unicode_values = [ord(c) for c in message]
+    #print(len(unicode_values))
+    ascii_message = decodeer(unicode_values)
+    print(f&#34;Decoded flag: {ascii_message}&#34;)
+
+
+
+decode()
+</code></pre><blockquote>
+<p>BtSCTF{W0W_it_re4l1y<em>m3aNs</em>$0methIng!!:)}</p>
+</blockquote>
+
+        </article>
+
+        
+        
+
+        
+        
+    </div>
+
+    
+    
+    <aside class="toc">
+        <div class="toc-title">On this page</div>
+        <nav class="toc-nav">
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#revrainbom-bash-adventure">[REV][Rainbom Bash Adventure]</a></li>
+        <li><a href="#revtranslator">[REV][TRANSLATOR]</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </nav>
+    </aside>
+    
+</main>
+
+    </div>
+
+    
+    
+    
+
+
+<script>
+    let searchIndex = [];
+    let selectedIndex = -1;
+    let searchLoaded = false;
+
+    
+    const baseURL = document.querySelector('base')?.href || '/';
+
+    
+    async function loadSearchIndex() {
+        if (searchLoaded) return;
+        
+        try {
+            
+            const paths = [
+                '\/index.json',
+                '/index.json',
+                './index.json'
+            ];
+
+            for (const path of paths) {
+                try {
+                    const response = await fetch(path);
+                    if (response.ok) {
+                        searchIndex = await response.json();
+                        searchLoaded = true;
+                        console.log('Search index loaded:', searchIndex.length, 'pages');
+                        return;
+                    }
+                } catch (e) {
+                    continue;
+                }
+            }
+            
+            console.error('Could not load search index from any path');
+        } catch (err) {
+            console.error('Error loading search index:', err);
+        }
+    }
+
+    
+    loadSearchIndex();
+
+    
+    function openSearch() {
+        const modal = document.getElementById('searchModal');
+        const input = document.getElementById('searchInput');
+        modal.classList.add('active');
+        input.value = '';
+        input.focus();
+        resetResults();
+        document.body.style.overflow = 'hidden';
+        
+        
+        loadSearchIndex();
+    }
+
+    
+    function closeSearch() {
+        const modal = document.getElementById('searchModal');
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+        selectedIndex = -1;
+    }
+
+    
+    function resetResults() {
+        const resultsContainer = document.getElementById('searchResults');
+        resultsContainer.innerHTML = `
+            <div class="search-empty-state">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+                <p>Type to start searching...</p>
+                <p class="search-debug">${searchIndex.length} pages indexed</p>
+            </div>
+        `;
+        selectedIndex = -1;
+    }
+
+    
+    function escapeRegex(string) {
+        return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    
+    function escapeHtml(text) {
+        if (!text) return '';
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    
+    function highlightText(text, query) {
+        if (!query || !text) return text;
+        const regex = new RegExp(`(${escapeRegex(query)})`, 'gi');
+        return text.replace(regex, '<mark class="search-highlight">$1</mark>');
+    }
+
+    
+    function getContext(content, query, contextLength = 100) {
+        if (!content) return '';
+        
+        const lowerContent = content.toLowerCase();
+        const lowerQuery = query.toLowerCase();
+        const index = lowerContent.indexOf(lowerQuery);
+        
+        if (index === -1) {
+            return content.substring(0, contextLength * 2) + (content.length > contextLength * 2 ? '...' : '');
+        }
+        
+        const start = Math.max(0, index - contextLength);
+        const end = Math.min(content.length, index + query.length + contextLength);
+        
+        let context = content.substring(start, end);
+        
+        if (start > 0) context = '...' + context;
+        if (end < content.length) context = context + '...';
+        
+        return context;
+    }
+
+    
+    function formatSection(section, parent) {
+        if (parent) {
+            return parent.toUpperCase();
+        }
+        if (!section || section === 'home') return 'HOME';
+        return section.split(/[-_]/).map(word => 
+            word.charAt(0).toUpperCase() + word.slice(1)
+        ).join(' ').toUpperCase();
+    }
+
+    
+    function performSearch(query) {
+        const resultsContainer = document.getElementById('searchResults');
+        
+        if (!query || query.length < 1) {
+            resetResults();
+            return;
+        }
+
+        if (!searchLoaded || searchIndex.length === 0) {
+            resultsContainer.innerHTML = `
+                <div class="search-empty-state">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <p>Loading search index...</p>
+                </div>
+            `;
+            loadSearchIndex().then(() => performSearch(query));
+            return;
+        }
+
+        const lowerQuery = query.toLowerCase().trim();
+        
+        
+        const results = searchIndex
+            .map(item => {
+                let score = 0;
+                const titleLower = (item.title || '').toLowerCase();
+                const contentLower = (item.content || '').toLowerCase();
+                
+                
+                if (titleLower === lowerQuery) score += 100;
+                
+                else if (titleLower.startsWith(lowerQuery)) score += 50;
+                
+                else if (titleLower.includes(lowerQuery)) score += 30;
+                
+                
+                if (contentLower.includes(lowerQuery)) {
+                    score += 10;
+                    
+                    const matches = (contentLower.match(new RegExp(escapeRegex(lowerQuery), 'g')) || []).length;
+                    score += Math.min(matches * 2, 20);
+                }
+                
+                return { ...item, score };
+            })
+            .filter(item => item.score > 0)
+            .sort((a, b) => b.score - a.score)
+            .slice(0, 15);
+
+        if (results.length === 0) {
+            resultsContainer.innerHTML = `
+                <div class="search-empty-state">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <p>No results found for "<strong>${escapeHtml(query)}</strong>"</p>
+                    <p class="search-debug">Searched ${searchIndex.length} pages</p>
+                </div>
+            `;
+            selectedIndex = -1;
+            return;
+        }
+
+        let html = '<div class="search-results-list">';
+        
+        results.forEach((result, index) => {
+            const context = getContext(result.content || '', query, 80);
+            const highlightedTitle = highlightText(escapeHtml(result.title || 'Untitled'), query);
+            const highlightedContext = highlightText(escapeHtml(context), query);
+            const sectionName = formatSection(result.section, result.parent);
+            
+            html += `
+                <a href="${result.permalink}" class="search-result-item" data-index="${index}">
+                    <div class="result-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                        </svg>
+                    </div>
+                    <div class="result-content">
+                        <div class="result-section">${sectionName}</div>
+                        <div class="result-title">${highlightedTitle}</div>
+                        ${highlightedContext ? `<div class="result-context">${highlightedContext}</div>` : ''}
+                    </div>
+                    <div class="result-arrow">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </div>
+                </a>
+            `;
+        });
+        
+        html += '</div>';
+        resultsContainer.innerHTML = html;
+        selectedIndex = -1;
+    }
+
+    
+    function updateSelection() {
+        const items = document.querySelectorAll('.search-result-item');
+        items.forEach((item, index) => {
+            if (index === selectedIndex) {
+                item.classList.add('selected');
+                item.scrollIntoView({ block: 'nearest' });
+            } else {
+                item.classList.remove('selected');
+            }
+        });
+    }
+
+    
+    function navigateToSelected() {
+        const items = document.querySelectorAll('.search-result-item');
+        if (selectedIndex >= 0 && selectedIndex < items.length) {
+            window.location.href = items[selectedIndex].href;
+        }
+    }
+
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        const searchInput = document.getElementById('searchInput');
+        const modal = document.getElementById('searchModal');
+
+        
+        let debounceTimer;
+        searchInput.addEventListener('input', (e) => {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => {
+                performSearch(e.target.value);
+            }, 100);
+        });
+
+        
+        document.addEventListener('keydown', (e) => {
+            
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                openSearch();
+            }
+
+            
+            if (!modal.classList.contains('active')) return;
+
+            
+            if (e.key === 'Escape') {
+                e.preventDefault();
+                closeSearch();
+            }
+
+            
+            const items = document.querySelectorAll('.search-result-item');
+            if (items.length === 0) return;
+
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                selectedIndex = Math.min(selectedIndex + 1, items.length - 1);
+                updateSelection();
+            }
+
+            if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                selectedIndex = Math.max(selectedIndex - 1, 0);
+                updateSelection();
+            }
+
+            
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                if (selectedIndex >= 0) {
+                    navigateToSelected();
+                } else if (items.length > 0) {
+                    window.location.href = items[0].href;
+                }
+            }
+        });
+
+        
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeSearch();
+            }
+        });
+
+        
+        document.addEventListener('mouseover', (e) => {
+            const item = e.target.closest('.search-result-item');
+            if (item) {
+                selectedIndex = parseInt(item.dataset.index);
+                updateSelection();
+            }
+        });
+    });
+</script>
+<script>
+
+window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    
+    if (docHeight > 0) {
+        const progress = (scrollTop / docHeight) * 100;
+        document.getElementById('readingProgress').style.width = progress + '%';
+    }
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    
+    if (docHeight > 0) {
+        const progress = (scrollTop / docHeight) * 100;
+        document.getElementById('readingProgress').style.width = progress + '%';
+    }
+});
+    </script>
+
+</body>
+</html>

@@ -2,32 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:11545/blog/test-nesting/level2/level3/final_2post/</loc>
+    <loc>http://localhost:1780/blog/ctfs-writeups/1/</loc>
   </url><url>
-    <loc>http://localhost:11545/blog/ctfs-writeups/1/</loc>
+    <loc>http://localhost:1780/blog/ctfs-writeups/</loc>
   </url><url>
-    <loc>http://localhost:11545/blog/ctfs-writeups/</loc>
+    <loc>http://localhost:1780/blog/crackmes/1/</loc>
   </url><url>
-    <loc>http://localhost:11545/blog/test-nesting/</loc>
+    <loc>http://localhost:1780/blog/ctfs-writeups/2/</loc>
   </url><url>
-    <loc>http://localhost:11545/about/about/</loc>
+    <loc>http://localhost:1780/blog/crackmes/</loc>
   </url><url>
-    <loc>http://localhost:11545/about/</loc>
+    <loc>http://localhost:1780/blog/ctfs-writeups/3/</loc>
   </url><url>
-    <loc>http://localhost:11545/categories/</loc>
+    <loc>http://localhost:1780/blog/ctfs-writeups/4/</loc>
   </url><url>
-    <loc>http://localhost:11545/blog/test-nesting/level2/</loc>
+    <loc>http://localhost:1780/about/about/</loc>
   </url><url>
-    <loc>http://localhost:11545/blog/test-nesting/level2/level3/</loc>
+    <loc>http://localhost:1780/about/</loc>
   </url><url>
-    <loc>http://localhost:11545/blog/test-nesting/level2/level3/final_post/</loc>
+    <loc>http://localhost:1780/categories/</loc>
   </url><url>
-    <loc>http://localhost:11545/</loc>
+    <loc>http://localhost:1780/</loc>
   </url><url>
-    <loc>http://localhost:11545/projects/</loc>
+    <loc>http://localhost:1780/projects/</loc>
   </url><url>
-    <loc>http://localhost:11545/tags/</loc>
+    <loc>http://localhost:1780/tags/</loc>
   </url><url>
-    <loc>http://localhost:11545/blog/</loc>
+    <loc>http://localhost:1780/blog/</loc>
   </url>
 </urlset>
