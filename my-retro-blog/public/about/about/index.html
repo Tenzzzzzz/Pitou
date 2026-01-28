@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=3588&amp;path=livereload" data-no-instant defer></script>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=5836&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pitou - </title>
@@ -74,14 +74,8 @@
             <div class="about-text">
                 <p>CS student at Cairo University exploring new things in cybersecurity.</p>
 <p>currently focusing on =&gt;</p>
-<ul>
-<li>
-<p><strong>Malware Analysis</strong></p>
-</li>
-<li>
-<p><strong>Threat Detection Engineering</strong></p>
-</li>
-</ul>
+<p>Malware Analysis</p>
+<p>Threat Detection Engineering</p>
 
             </div>
             <p>&nbsp;</p>
@@ -100,7 +94,7 @@
     
     const commands = {
         help: 'Available commands: help, clear, about, date, echo [text]',
-        about: 'CS student at Cairo University exploring new things in cybersecurity.',
+        about: `CS student at Cairo University exploring new things in cybersecurity.\ncurrently focusing on =\u0026gt;\nMalware Analysis\nThreat Detection Engineering\n`,
         date: new Date().toLocaleString(),
         clear: 'CLEAR'
     };
@@ -134,10 +128,13 @@ input.addEventListener('keypress', function(e) {
     } else if (cmd === 'echo') {
       response.textContent = parts.slice(1).join(' ');
       output.appendChild(response);
-    } else if (commands[cmd]) {
-      response.textContent = commands[cmd];
-      output.appendChild(response);
-    } else {
+    }
+    if (commands[cmd]) {
+    
+    response.innerHTML = commands[cmd].replace(/\n/g, '<br>');
+    output.appendChild(response);
+    }
+    else {
       response.textContent = `bash: ${cmd}: command not found`;
       output.appendChild(response);
     }

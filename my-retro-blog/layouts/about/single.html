@@ -31,7 +31,7 @@
     
     const commands = {
         help: 'Available commands: help, clear, about, date, echo [text]',
-        about: 'CS student at Cairo University exploring new things in cybersecurity.',
+        about: `{{ with site.GetPage "/about/about.md" }}{{ .Plain | safeJS }}{{ else }}Error: File not found{{ end }}`,
         date: new Date().toLocaleString(),
         clear: 'CLEAR'
     };
@@ -65,10 +65,13 @@ input.addEventListener('keypress', function(e) {
     } else if (cmd === 'echo') {
       response.textContent = parts.slice(1).join(' ');
       output.appendChild(response);
-    } else if (commands[cmd]) {
-      response.textContent = commands[cmd];
-      output.appendChild(response);
-    } else {
+    }
+    if (commands[cmd]) {
+    // Replace actual line breaks with HTML break tags
+    response.innerHTML = commands[cmd].replace(/\n/g, '<br>');
+    output.appendChild(response);
+    }
+    else {
       response.textContent = `bash: ${cmd}: command not found`;
       output.appendChild(response);
     }
