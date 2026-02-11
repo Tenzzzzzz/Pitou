@@ -66,6 +66,12 @@ body {
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
     animation: slideInWithBlur 0.7s ease-out;
 }
+body.projects-page .window-content {
+    padding: 20px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .window-header {
  background: linear-gradient(
@@ -185,7 +191,7 @@ body {
     background-size: 100%;
     background-position: center;
     background-repeat: no-repeat;
-    filter: blur(3px) brightness(0.5);
+    filter: blur(1px) brightness(3px);
     z-index: 0;
 }
 
@@ -213,7 +219,7 @@ body {
 @keyframes glitchBg {
     0%, 90%, 100% {
         transform: translate(0);
-        filter: blur(3px) brightness(0.6);
+        filter: blur(3px) brightness(10);
     }
     91% {
         transform: translate(-5px, 2px);
