@@ -1,16 +1,13 @@
 /* ═══════════════════════════════════════════════════════════
-   PROJECTS PAGE - Same Style as About
+   PROJECTS PAGE
    ═══════════════════════════════════════════════════════════ */
 
 .projects-container {
-    /* MATCH terminal-container exactly */
-    max-width: 1000px;           /* Same as terminal */
-    margin: 1px auto;          /* Same as terminal */
+    max-width: 1000px;
+    margin: 1px auto;
     padding: 30px 30px;
-    border-radius: 30px;         /* Same as terminal */
+    border-radius: 30px;
     overflow-y: auto;
-
-    /* Same height as terminal-body */
     min-height: 600px;
     max-height: 600px;
 
@@ -22,30 +19,8 @@
         linear-gradient(180deg, #000000 0%, #0a0b0c 100%);
 
     border: 1px solid rgba(255,255,255,0.10);
-
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);  /* Same as terminal */
-
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(6px);
-}
-
-@media (max-width: 768px) {
-    .projects-container {
-        max-width: 95%;
-        padding: 24px;
-        margin: 20px auto;
-        border-radius: 20px;
-        min-height: auto;
-        max-height: none;
-    }
-}
-
-@media (max-width: 480px) {
-    .projects-container {
-        max-width: 100%;
-        padding: 16px;
-        margin: 10px;
-        border-radius: 15px;
-    }
 }
 
 /* Scrollbar */
@@ -73,11 +48,6 @@
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* Title */
-
-
-
-
 /* ═══════════════════════════════════════════════════════════
    PROJECT CARD
    ═══════════════════════════════════════════════════════════ */
@@ -101,25 +71,12 @@
 }
 
 /* GitHub Preview Image */
-/* GitHub Preview Image - BIGGER */
 .project-image {
     width: 100%;
-    height: 330px;  /* Was 170px - make it taller */
+    height: 330px;
     overflow: hidden;
     background: #0d0d0d;
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-}
-
-@media (max-width: 768px) {
-    .project-image {
-        height: 200px;
-    }
-}
-
-@media (max-width: 480px) {
-    .project-image {
-        height: 150px;
-    }
 }
 
 .project-image img {
@@ -129,35 +86,15 @@
     transition: transform 0.9s ease;
 }
 
-/* Project Info - more padding */
-
-
 .project-card:hover .project-image img {
     transform: scale(1);
 }
 
+/* Project Info */
 .project-info {
     padding: 15px 20px;
 }
 
-@media (max-width: 768px) {
-    .project-info {
-        padding: 12px 15px;
-    }
-}
-
-
-@media (max-width: 480px) {
-    .project-header {
-        gap: 8px;
-        margin-bottom: 12px;
-    }
-}
-@media (max-width: 480px) {
-    .project-info {
-        padding: 10px 12px;
-    }
-}
 /* Project Header */
 .project-header {
     display: flex;
@@ -166,18 +103,6 @@
     margin-bottom: 16px;
 }
 
-
-@media (max-width: 768px) {
-    .project-name {
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .project-name {
-        font-size: 0.9rem;
-    }
-}
 .project-icon {
     width: 40px;
     height: 40px;
@@ -202,29 +127,6 @@
     color: #ae4d7d;
 }
 
-
-@media (max-width: 768px) {
-    .project-desc {
-        font-size: 0.8rem;
-        line-height: 1.5;
-        margin-bottom: 10px;
-    }
-}
-
-@media (max-width: 480px) {
-    .project-desc {
-        font-size: 0.75rem;
-        line-height: 1.4;
- 
-
-@media (max-width: 480px) {
-    .tag {
-        padding: 2px 6px;
-        font-size: 0.6rem;
-    }
-}       margin-bottom: 8px;
-    }
-}
 .project-arrow {
     color: #444;
     flex-shrink: 0;
@@ -236,7 +138,7 @@
     transform: translate(4px, -4px);
 }
 
-/* Project Description - White & Glowing */
+/* Project Description */
 .project-desc {
     font-size: 0.85rem;
     color: #ffffff;
@@ -252,11 +154,11 @@
     gap: 8px;
 }
 
-/* Tags - SMALLER */
 .tag {
     padding: 3px 8px;
     font-size: 0.65rem;
     background: rgb(101, 7, 87);
+    border-radius: 4px;
 }
 
 .project-card:hover .tag {
@@ -264,35 +166,79 @@
 }
 
 /* ═══════════════════════════════════════════════════════════
-   RESPONSIVE
+   RESPONSIVE - TABLET
    ═══════════════════════════════════════════════════════════ */
 
 @media (max-width: 768px) {
     .projects-container {
-        width: 95%;
+        max-width: 95%;
         padding: 24px;
-        height: auto;
-        max-height: none;
         margin: 20px auto;
+        border-radius: 20px;
+        min-height: auto;
+        max-height: none;
     }
-    
-    .projects-title {
-        font-size: 1.6rem;
-    }
-    
+
     .project-image {
-        height: 160px;
+        height: 200px;
     }
-    
+
     .project-info {
-        padding: 20px;
+        padding: 12px 15px;
     }
-    
+
     .project-name {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
-    
+
+    .project-desc {
+        font-size: 0.8rem;
+        line-height: 1.5;
+        margin-bottom: 10px;
+    }
+
     .project-header {
         flex-wrap: wrap;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE - MOBILE
+   ═══════════════════════════════════════════════════════════ */
+
+@media (max-width: 480px) {
+    .projects-container {
+        max-width: 100%;
+        padding: 16px;
+        margin: 10px;
+        border-radius: 15px;
+    }
+
+    .project-image {
+        height: 150px;
+    }
+
+    .project-info {
+        padding: 10px 12px;
+    }
+
+    .project-header {
+        gap: 8px;
+        margin-bottom: 12px;
+    }
+
+    .project-name {
+        font-size: 0.9rem;
+    }
+
+    .project-desc {
+        font-size: 0.75rem;
+        line-height: 1.4;
+        margin-bottom: 8px;
+    }
+
+    .tag {
+        padding: 2px 6px;
+        font-size: 0.6rem;
     }
 }
