@@ -350,6 +350,10 @@ body.projects-page .window-content {
         min-width: auto;
         min-height: 300px;
     }
+    
+    .window-content::before {
+        background-size: cover;  /* ADD THIS */
+    }
 
     body.projects-page .window-content {
         padding: 15px 20px;
